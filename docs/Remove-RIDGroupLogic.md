@@ -98,6 +98,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
-- [Get-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupLogic.md)
-- [Set-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupLogic.md)
-- [Test-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupLogic.md)
+[Get-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupLogic.md)
+[Set-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupLogic.md)
+[Test-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupLogic.md)

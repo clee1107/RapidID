@@ -29,15 +29,15 @@ This cmdlet retrieves only the value of idautoGroupIncludeFilter from group obje
 ```powershell
 PS C:\> Get-RIDGroupLogic -Identity testGroupWithLogic
 
-name     idautoGroupIncludeFilter
-----     ------------------------
-test_PS  (&(employeetype=staff))
+name                idautoGroupIncludeFilter
+----                ------------------------
+testGroupWithLogic  (&(employeetype=staff))
 
 PS C:\> Get-RIDGroupLogic -Identity testGroupWithOutLogic
 
-name     idautoGroupIncludeFilter
-----     ------------------------
-test_PS
+name                idautoGroupIncludeFilter
+----                ------------------------
+testGroupWithLogic
 
 ```
 
@@ -53,9 +53,9 @@ testGroupWithLogic  (&(employeetype=staff))
 
 PS C:\> Get-RIDGroupLogic -Identity testGroupWithOutLogic
 
-name                idautoGroupIncludeFilter
-----                ------------------------
-testGroupWithLogic
+name                   idautoGroupIncludeFilter
+----                   ------------------------
+testGroupWithOutLogic
 
 ```
 
@@ -83,19 +83,19 @@ Specifies the Active Directory Domain Services instance to connect to, by provid
 
 Domain name values:
 
---Fully qualified domain name (FQDN)
---NetBIOS name
+- Fully qualified domain name (FQDN)
+- NetBIOS name
 
 Directory server values:
 
---Fully qualified directory server name
---NetBIOS name
---Fully qualified directory server name and port
+- Fully qualified directory server name
+- NetBIOS name
+- Fully qualified directory server name and port
 
 The default value for the Server parameter is determined by one of the following methods in the order that they are listed:
 
---By using Server value from objects passed through the pipeline.
---By using the domain of the computer running PowerShell.
+- By using Server value from objects passed through the pipeline.
+- By using the domain of the computer running PowerShell.
 
 ```yaml
 Type: String
@@ -122,6 +122,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
-- [Remove-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupLogic.md)
-- [Set-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupLogic.md)
-- [Test-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupLogic.md)
+[Remove-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupLogic.md)
+[Set-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupLogic.md)
+[Test-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupLogic.md)
