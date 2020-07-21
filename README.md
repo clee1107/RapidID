@@ -11,6 +11,9 @@ If you have any problems please check our GitHub issues page. If you do not see 
 - ### RIDGroupLogic
     Comprised of four (4) commands (Get, Set, Remove, Test).
     - [Get-RIDGroupLogic](docs/Get-RIDGroupLogic.md)
+    - [Remove-RIDGroupLogic](docs/Remove-RIDGroupLogic.md)
+    - [Set-RIDGroupLogic](docs/Set-RIDGroupLogic.md)
+    - [Test-RIDGroupLogic](docs/Test-RIDGroupLogic.md)
 
 ## Changes and versioning
 
