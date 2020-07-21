@@ -1,7 +1,7 @@
 ---
 external help file: RapidID-help.xml
 Module Name: RapidID
-online version:
+online version: https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupLogic.md
 schema: 2.0.0
 ---
 
@@ -122,3 +122,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+   [Remove-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupLogic.md)
+   [Set-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupLogic.md)
+   [Test-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupLogic.md)
