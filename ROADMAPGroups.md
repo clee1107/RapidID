@@ -1,0 +1,72 @@
+# RapidID (RID) - Group Function Roadmap
+
+Track the 60+ attributes that need functions written for them
+
+
+## Roadmap
+- ### Completed
+   - [X] Add list of all idauto attributes for AD groups
+   - [X] idautoGroupIncludeFilter
+
+- ### To Do
+   - [ ] idautoDisabled
+   - [ ] idautoExternalIntegrationStatus
+   - [ ] idautoGroupAcademicCareer
+   - [ ] idautoGroupCampusID
+   - [ ] idautoGroupCollegeID
+   - [ ] idautoGroupCoOwnerEditable
+   - [ ] idautoGroupCoOwners
+   - [ ] idautoGroupDeprovisionDate
+   - [ ] idautoGroupDestOU
+   - [ ] idautoGroupDivisionID
+   - [ ] idautoGroupDivisionName
+   - [ ] idautoGroupEmailName
+   - [ ] idautoGroupExcludeBaseDN
+   - [ ] idautoGroupExcludeFilter
+   - [ ] idautoGroupFolderDest
+   - [ ] idautoGroupGoogleEmail
+   - [ ] idautoGroupHomePath
+   - [ ] idautoGroupIncludeBaseDN
+   - [ ] idautoGroupLastSynced
+   - [ ] idautoGroupOwners
+   - [ ] idautoGroupPreviousName
+   - [ ] idautoGroupSharePath
+   - [ ] idautoGroupStaticExcludes
+   - [ ] idautoGroupStaticIncludes
+   - [ ] idautoGroupSyncDSS
+   - [ ] idautoGroupSyncInterval
+   - [ ] idautoGroupToSystem1
+   - [ ] idautoGroupToSystem2
+   - [ ] idautoGroupToSystem3
+   - [ ] idautoGroupToSystem4
+   - [ ] idautoGroupToSystem5
+   - [ ] idautoID
+   - [ ] idautoResourceACL
+   - [ ] idautoResourceAppOwnerApprover
+   - [ ] idautoResourceCategories
+   - [ ] idautoResourceConflicts
+   - [ ] idautoResourceDataClassification
+   - [ ] idautoResourceDependencies
+   - [ ] idautoResourceEntitlement
+   - [ ] idautoResourceEntitlementParam
+   - [ ] idautoResourceExpDays
+   - [ ] idautoResourceExpInterval
+   - [ ] idautoResourceGrantForm
+   - [ ] idautoResourceIcon
+   - [ ] idautoResourceInputData
+   - [ ] idautoResourceManualProvisioner
+   - [ ] idautoResourceName
+   - [ ] idautoResourceOwner
+   - [ ] idautoResourcePRD
+   - [ ] idautoResourcePriority
+   - [ ] idautoResourceReqAppOwnApproval
+   - [ ] idautoResourceReqApproval
+   - [ ] idautoResourceReqManagerApproval
+   - [ ] idautoResourceReqManProvisioning
+   - [ ] idautoResourceReqSecApproval
+   - [ ] idautoResourceRevokeForm
+   - [ ] idautoResourceRevokePRD
+   - [ ] idautoResourceSecurityApprover
+   - [ ] idautoResourceType
+   - [ ] idautoRoleAssociatedResources
+   - [ ] idautoStatus
