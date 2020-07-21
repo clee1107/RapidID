@@ -69,8 +69,8 @@ Description = 'This module helps manage Rapid Identity.'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Get-RIDGroupLogic', 'Get-RIDGroupLogicStatus', 
-               'Remove-RIDGroupLogic', 'Set-RIDGroupLogic'
+FunctionsToExport = 'Get-RIDGroupLogic', 'Remove-RIDGroupLogic', 'Set-RIDGroupLogic', 
+               'Test-RIDGroupLogic'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -102,7 +102,7 @@ PrivateData = @{
         # LicenseUri = ''
 
         # A URL to the main website for this project.
-        ProjectUri = 'https://github.com/clee1107'
+        ProjectUri = 'https://github.com/clee1107/RapidID'
 
         # A URL to an icon representing this module.
         # IconUri = ''
