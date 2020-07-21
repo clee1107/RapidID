@@ -1,4 +1,4 @@
-function Get-RIDGroupLogicStatus {
+function Test-RIDGroupLogic {
     [CmdletBinding()]
     param (
         [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]

@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-RIDGroupLogicStatus
+# Test-RIDGroupLogic
 
 ## SYNOPSIS
 Check if group already has include logic set.  Return True/False.
@@ -13,11 +13,11 @@ Check if group already has include logic set.  Return True/False.
 ## SYNTAX
 
 ```
-Get-RIDGroupLogicStatus [-Identity] <String> [-Server <String>] [<CommonParameters>]
+Test-RIDGroupLogic [-Identity] <String> [-Server <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The Get-RIDGroupLogicStatus cmdlet views a specified group object's idautoGroupIncludeFilter attribute.
+The Test-RIDGroupLogic cmdlet views a specified group object's idautoGroupIncludeFilter attribute.
 
 The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $<localGroupObject> or pass a group object through the pipeline to the Identity parameter.
 
@@ -27,11 +27,11 @@ This cmdlet returns either True if idautoGroupIncludeFilter from group object pr
 
 ### Example 1
 ```powershell
-PS C:\> Get-RIDGroupLogicStatus -Identity testGroupWithLogic
+PS C:\> Test-RIDGroupLogic -Identity testGroupWithLogic
 
 true
 
-PS C:\> Get-RIDGroupLogicStatus -Identity testGroupWithOutLogic
+PS C:\> Test-RIDGroupLogic -Identity testGroupWithOutLogic
 
 false
 
@@ -41,11 +41,11 @@ This command displays idautoGroupIncludeFilter property value for group name tes
 
 ### Example 2
 ```powershell
-PS C:\> Get-RIDGroupLogicStatus -Identity testGroupWithLogic -Server DC01
+PS C:\> Test-RIDGroupLogic -Identity testGroupWithLogic -Server DC01
 
 true
 
-PS C:\> Get-RIDGroupLogicStatus -Identity testGroupWithOutLogic -Server DC01
+PS C:\> Test-RIDGroupLogic -Identity testGroupWithOutLogic -Server DC01
 
 false
 
