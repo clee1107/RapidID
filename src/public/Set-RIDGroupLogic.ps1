@@ -17,12 +17,6 @@ function Set-RIDGroupLogic {
 
     process {
         ## region Code
-            ## Check if already has logic
-                Write-Verbose -Message "Checking if $Identity already has include logic."
-                If ((Get-ADGroup -Identity $Identity -Property idautoGroupIncludeFilter -Server $Server | Select-Object -ExpandProperty idautoGroupIncludeFilter) -ne $NULL)
-                    {
-                        Throw "$Identity already has include logic"
-                    }
             ## Set logic attribute
                 Write-Verbose -Message "Attempting to set include logic for $Identity"
                 Try {
