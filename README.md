@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/chrislee1107/RapidID/_apis/build/status/RapidID-CI?branchName=master)](https://dev.azure.com/chrislee1107/RapidID/_build/latest?definitionId=1&branchName=master)
+
 # RapidID (RID)
 
 Purpose of this module is to simplify modifying extended Active Directory (AD) attributes created and used by Identity Automations Raapid Identity Suite.
