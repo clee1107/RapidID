@@ -9,6 +9,13 @@ This project is to be considered a proof-of-concept and not a supported product.
 
 If you have any problems please check our GitHub issues page. If you do not see your problem captured, please file a new issue and follow the provided template.
 
+## How to set up
+Install the module from the PowerShell Gallery:
+
+```powershell
+Install-Module PSPDFGen
+```
+
 ## Function Sets
 - ### RIDGroupLogic
     Comprised of four (4) commands (Get, Set, Remove, Test).
