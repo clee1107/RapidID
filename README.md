@@ -13,7 +13,7 @@ If you have any problems please check our GitHub issues page. If you do not see 
 Install the module from the PowerShell Gallery:
 
 ```powershell
-Install-Module PSPDFGen
+Install-Module RapidID
 ```
 
 ## Function Sets
