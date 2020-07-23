@@ -1,6 +1,9 @@
 Deploy Module {
     By PSGalleryModule {
         FromSource Build\RapidID
-        To SPSLocalSMBRepo
+        To PSGallery
+        WithOptions @{
+            ApiKey = $ENV:PSGalleryKey
+        }
     }
 }
