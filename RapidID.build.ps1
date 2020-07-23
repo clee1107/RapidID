@@ -31,16 +31,16 @@ task DocBuild {
 
 task ModuleBuild Clean, DocBuild, {
     $pubFiles = Get-ChildItem "$srcPath\public" -Filter *.ps1 -File
-    $privFiles = Get-ChildItem "$srcPath\private" -Filter *.ps1 -File
+    #$privFiles = Get-ChildItem "$srcPath\private" -Filter *.ps1 -File
     If(-not(Test-Path $modulePath)){
         New-Item $modulePath -ItemType Directory
     }
     ForEach($file in ($pubFiles)) {
         Get-Content $file.FullName | Out-File "$modulePath\$moduleName.psm1" -Append -Encoding utf8
     }
-    ForEach($file in ($privFiles)) {
+    <#ForEach($file in ($privFiles)) {
         Get-Content $file.FullName | Out-File "$modulePath\$moduleName.psm1" -Append -Encoding utf8
-    }
+    }#>
     Copy-Item "$srcPath\$moduleName.psd1" -Destination $modulePath
 
     $moduleManifestData = @{
