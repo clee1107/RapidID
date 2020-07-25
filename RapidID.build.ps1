@@ -1,3 +1,8 @@
+param (
+    [ValidateSet("Major","Minor","Patch")]
+    $bump
+)
+
 $srcPath = "$PSScriptRoot\src"
 $buildPath = "$PSScriptRoot\build"
 $docPath = "$PSScriptRoot\docs"
@@ -38,9 +43,36 @@ task ModuleBuild Clean, DocBuild, {
     ForEach($file in ($pubFiles)) {
         Get-Content $file.FullName | Out-File "$modulePath\$moduleName.psm1" -Append -Encoding utf8
     }
-    <#ForEach($file in ($privFiles)) {
-        Get-Content $file.FullName | Out-File "$modulePath\$moduleName.psm1" -Append -Encoding utf8
-    }#>
+    IF ($privFiles) {
+        ForEach($file in ($privFiles)) {
+            Get-Content $file.FullName | Out-File "$modulePath\$moduleName.psm1" -Append -Encoding utf8
+        }
+    }
+    Switch ($bump) {
+        'Patch' {
+            $patch++
+            $newVersion = [version]"$major.$minor.$patch"
+            Write-Verbose "Bumping module version to [$newVersion]"
+            Update-ModuleManifest -Path $manifestPath -ModuleVersion $newVersion
+            $moduleVersion = (Test-ModuleManifest -Path $manifestPath).Version
+        }
+        'Minor' {
+            $minor++
+            $patch = 0
+            Write-Verbose "Bumping module version to [$newVersion]"
+            Update-ModuleManifest -Path $manifestPath -ModuleVersion $newVersion
+            $moduleVersion = (Test-ModuleManifest -Path $manifestPath).Version
+        }
+        'Major' {
+            $major++
+            $minor = 0
+            $patch = 0
+            Write-Verbose "Bumping module version to [$newVersion]"
+            Update-ModuleManifest -Path $manifestPath -ModuleVersion $newVersion
+            $moduleVersion = (Test-ModuleManifest -Path $manifestPath).Version
+        }
+    }
+
     Copy-Item "$srcPath\$moduleName.psd1" -Destination $modulePath
 
     $moduleManifestData = @{
@@ -60,31 +92,6 @@ task Publish {
     Invoke-PSDeploy -Path $PSScriptRoot -Force
 }
 
-task VersionPatch {
-    $patch++
-    $newVersion = [version]"$major.$minor.$patch"
-    Write-Verbose "Bumping module version to [$newVersion]"
-    Update-ModuleManifest -Path $manifestPath -ModuleVersion $newVersion
-    $moduleVersion = (Test-ModuleManifest -Path $manifestPath).Version
-}
-
-task VersionMinor {
-    $minor++
-    $patch = 0
-    $newVersion = [version]"$major.$minor.$patch"
-    Write-Verbose "Bumping module version to [$newVersion]"
-    Update-ModuleManifest -Path $manifestPath -ModuleVersion $newVersion
-    $moduleVersion = (Test-ModuleManifest -Path $manifestPath).Version
-}
-
-task VersionMajor {
-    $major++
-    $minor = 0
-    $patch = 0
-    $newVersion = [version]"$major.$minor.$patch"
-    Write-Verbose "Bumping module version to [$newVersion]"
-    Update-ModuleManifest -Path $manifestPath -ModuleVersion $newVersion
-    $moduleVersion = (Test-ModuleManifest -Path $manifestPath).Version
-}
+task . ModuleBuild
 
 task All ModuleBuild, Publish
