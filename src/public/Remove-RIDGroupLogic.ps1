@@ -4,7 +4,7 @@ function Remove-RIDGroupLogic {
         [String]
             $Identity,
         [String]
-            $Server= (Get-ADDomain | Select-Object -ExpandProperty DNSRoot)
+            $Server= (Get-ADDomainController).HostName
     )
 
     begin {

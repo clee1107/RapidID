@@ -8,7 +8,7 @@ function Set-RIDGroupLogic {
         [String]
             $Logic,
         [String]
-            $Server = (Get-ADDomain | Select-Object -ExpandProperty DNSRoot)
+            $Server = (Get-ADDomainController).HostName
     )
 
     begin {
