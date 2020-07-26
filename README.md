@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/chrislee1107/RapidID/_apis/build/status/RapidID-CI?branchName=master)](https://dev.azure.com/chrislee1107/RapidID/_build/latest?definitionId=1&branchName=master)
+![Azure DevOps builds](https://img.shields.io/azure-devops/build/chrislee1107/f9bd49a9-1752-4ff3-b843-1f84a120111c/1?label=Azure%20Pipelines&style=plastic)    [![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/RapidID?color=blue&label=PowerShell%20Gallery&logo=RapidID&style=plastic) ](https://www.powershellgallery.com/packages/RapidID)  [![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/rapidid?color=Green&label=Downloads&logo=RapidID&style=plastic)](https://www.powershellgallery.com/packages/RapidID)    [![GitHub](https://img.shields.io/github/license/clee1107/rapidid?label=License&logo=RapidID&style=plastic)](https://github.com/clee1107/RapidID)
 
 # RapidID (RID)
 
