@@ -1,5 +1,5 @@
 function Remove-RIDGroupLogic {
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess)]
     param (
         [String]
             $Identity,
