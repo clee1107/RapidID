@@ -88,6 +88,10 @@ task ModuleBuild Clean, DocBuild, {
     Import-Module $modulePath -RequiredVersion $version
 }
 
+task Testing {
+    Invoke-Pester -Path "$PSScriptRoot\Tests" -Show All
+}
+
 task Publish {
     Invoke-PSDeploy -Path $PSScriptRoot -Force
 }
