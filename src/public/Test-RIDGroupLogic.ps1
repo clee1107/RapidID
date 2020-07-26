@@ -13,10 +13,10 @@ function Test-RIDGroupLogic {
     }
 
     process {
-        If ((Get-ADGroup -Identity $Identity -Property idautoGroupIncludeFilter -Server $Server | Select-Object -ExpandProperty idautoGroupIncludeFilter) -eq $Null)
-            {Return $FALSE}
+        If ($Null -eq (Get-ADGroup -Identity $Identity -Property idautoGroupIncludeFilter -Server $Server | Select-Object -ExpandProperty idautoGroupIncludeFilter))
+            {Write-Output $FALSE -NoEnumerate}
         Else
-            {Return $TRUE}
+            {Write-Output $TRUE -NoEnumerate}
     }
 
     end {
