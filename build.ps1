@@ -3,7 +3,7 @@ param(
     [string[]]$Task = 'ModuleBuild'
 )
 
-$DependentModules = @('InvokeBuild','PlatyPS',"PSDeploy") # add pester when pester tests are added, 'PSDeploy',
+$DependentModules = @('InvokeBuild','PlatyPS',"PSDeploy","Pester") # add pester when pester tests are added, 'PSDeploy',
 Foreach ($Module in $DependentModules){
     If (-not (Get-Module $module -ListAvailable)){
         Install-Module -name $Module -Scope CurrentUser -Force
