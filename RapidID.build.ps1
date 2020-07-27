@@ -6,6 +6,7 @@ param (
 $srcPath = "$PSScriptRoot\src"
 $buildPath = "$PSScriptRoot\build"
 $docPath = "$PSScriptRoot\docs"
+$testsPath = "$PSScriptRoot\tests"
 $moduleName = "RapidID"
 $modulePath = "$buildPath\$moduleName"
 $author = 'Chris Lee'
@@ -89,7 +90,8 @@ task ModuleBuild Clean, DocBuild, {
 }
 
 task Testing {
-    Invoke-Pester -Path "$PSScriptRoot\Tests" -Show All
+    Invoke-Pester -Path $testsPath -Show All
+    Invoke-ScriptAnalyzer -Path $srcPath -Recurse
 }
 
 task Publish {
