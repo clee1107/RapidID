@@ -1,6 +1,7 @@
 function Remove-RIDGroupLogic {
     [CmdletBinding(SupportsShouldProcess)]
     param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
         [String]
             $Identity,
         [String]
