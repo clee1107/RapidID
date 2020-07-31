@@ -1,5 +1,10 @@
 # ChangeLog for RapidID
 
+## 1.1.0
++ Production release of GroupCoOwner function set
+    + Clear, Get, Remove, Set, Test
++ Various issues with Git sync and files resolved
+
 ## 1.0.1
 + Renamed Remove-RIDGroupLogic to Clear to align more with actual task
 
