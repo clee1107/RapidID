@@ -13,11 +13,11 @@ Describe 'Set-RIDGroupLogic' -Tag "Set-RIDGroupLogic" {
     Context 'Parameter & Help  Checks' {
 		Set-StrictMode -Version latest
 		BeforeAll {
-			$helpinfo = Get-Help Remove-RIDGroupLogic
+			$helpinfo = Get-Help Set-RIDGroupLogic
 		}
 
 		It 'should have Identity as mandatory' {
-			{Remove-RIDGroupLogic -Identity $null} | Should -Throw
+			{Set-RIDGroupLogic -Identity $null} | Should -Throw
 		}
 		It 'should have Help along with Description and examples' {
 			$helpinfo | Should -Not -BeNullOrEmpty
