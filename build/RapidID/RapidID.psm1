@@ -22,8 +22,9 @@
     }
 }
 function Remove-RIDGroupLogic {
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess)]
     param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
         [String]
             $Identity,
         [String]
@@ -53,7 +54,7 @@ function Remove-RIDGroupLogic {
     }
 }
 function Set-RIDGroupLogic {
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess)]
     param (
         [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
         [String]
@@ -103,10 +104,10 @@ function Test-RIDGroupLogic {
     }
 
     process {
-        If ((Get-ADGroup -Identity $Identity -Property idautoGroupIncludeFilter -Server $Server | Select-Object -ExpandProperty idautoGroupIncludeFilter) -eq $Null)
-            {Return $FALSE}
+        If ($Null -eq (Get-ADGroup -Identity $Identity -Property idautoGroupIncludeFilter -Server $Server | Select-Object -ExpandProperty idautoGroupIncludeFilter))
+            {Write-Output $FALSE -NoEnumerate}
         Else
-            {Return $TRUE}
+            {Write-Output $TRUE -NoEnumerate}
     }
 
     end {
