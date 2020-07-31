@@ -2,7 +2,7 @@
 
 # RapidID (RID)
 
-Purpose of this module is to simplify modifying extended Active Directory (AD) attributes created and used by Identity Automations Raapid Identity Suite.
+Purpose of this module is to simplify modifying extended Active Directory (AD) attributes created and used by Identity Automations Rapid Identity Suite.
 
 Azure Dev Ops Project: [RapidID](https://dev.azure.com/chrislee1107/RapidID)
 
