@@ -12,7 +12,7 @@
 RootModule = 'RapidID.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -69,7 +69,9 @@ Description = 'This module helps manage Rapid Identity.'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Get-RIDGroupLogic', 'Remove-RIDGroupLogic', 'Set-RIDGroupLogic', 
+FunctionsToExport = 'Clear-RIDGroupCoOwner', 'Get-RIDGroupCoOwner', 'Get-RIDGroupLogic', 
+               'Remove-RIDGroupCoOwner', 'Remove-RIDGroupLogic', 
+               'Set-RIDGroupCoOwner', 'Set-RIDGroupLogic', 'Test-RIDGroupCoOwner', 
                'Test-RIDGroupLogic'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
