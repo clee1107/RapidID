@@ -26,17 +26,17 @@ The Identity parameter specifies the Active Directory group to get. You can iden
 
 ### Example 1
 ```powershell
-PS C:\> Remove-RIDGroupCoOwner -Identity TestGroup
+PS C:\> Clear-RIDGroupCoOwner -Identity TestGroup
 ```
 
-This command removes all CoOwners from idautoGroupCoOWners property value for group name testGroup.
+This command removes all CoOwners from idautoGroupCoOwners property value for group name testGroup.
 
 ### Example 2
 ```powershell
 PS C:\> Clear-RIDGroupCoOwner -Identity TestGroup -Server DC01
 ```
 
-This command removes all CoOwners from idautoGroupCoOWners property value for group name testGroup on Domain Controller DC01.
+This command removes all CoOwners from idautoGroupCoOwners property value for group name testGroup on Domain Controller DC01.
 
 ## PARAMETERS
 
@@ -103,6 +103,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [Remove-RIDGroupCoOwner](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md)
 
-[Set-RIDGrouCoOWner](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md)
+[Set-RIDGrouCoOWner](https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupCoOwner.md)
 
 [Test-RIDGroupCoOwner](https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupCoOwner.md)

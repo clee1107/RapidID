@@ -1,7 +1,7 @@
 ---
 external help file: RapidID-help.xml
 Module Name: RapidID
-online version: https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md
+online version: https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupCoOwner.md
 schema: 2.0.0
 ---
 
@@ -17,7 +17,7 @@ Set-RIDGroupCoOwner [-Identity] <String> [-Member] <String> [-Server <String>] [
 ```
 
 ## DESCRIPTION
-The Set-RIDGroupCoOWner cmdlet set (adds) the target user to an Active Directory group's idautoGroupCoOwners.
+The Set-RIDGroupCoOwner cmdlet set (adds) the target user to an Active Directory group's idautoGroupCoOwners.
 
 The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $<localGroupObject> or pass a group object through the pipeline to the Identity parameter.
 
@@ -30,14 +30,14 @@ PS C:\> Set-RIDGroupCoOwner -Identity TestGroup -Member "CN=someone,OU=Users,DC=
 
 ```
 
-This command sets "CN=someone,OU=Users,DC=Domain,DC=Local" to idautoGroupCoOWners property for group name testGroup.
+This command sets "CN=someone,OU=Users,DC=Domain,DC=Local" to idautoGroupCoOwners property for group name testGroup.
 
 ### Example 2
 ```powershell
 PS C:\> Set-RIDGroupCoOwner -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local" -Server DC01
 ```
 
-This command sets "CN=someone,OU=Users,DC=Domain,DC=Local" to idautoGroupCoOWners property for group name testGroup on Domain Controller DC01.
+This command sets "CN=someone,OU=Users,DC=Domain,DC=Local" to idautoGroupCoOwners property for group name testGroup on Domain Controller DC01.
 
 
 ## PARAMETERS

@@ -45,13 +45,13 @@ This command displays idautoGroupIncludeFilter property value for group name tes
 
 ### Example 2
 ```powershell
-PS C:\> Get-RIDGroupLogic -Identity testGroupWithLogic
+PS C:\> Get-RIDGroupLogic -Identity testGroupWithLogic -Server DC01
 
 name                idautoGroupIncludeFilter
 ----                ------------------------
 testGroupWithLogic  (&(employeetype=staff))
 
-PS C:\> Get-RIDGroupLogic -Identity testGroupWithOutLogic
+PS C:\> Get-RIDGroupLogic -Identity testGroupWithOutLogic -Server DC01
 
 name                   idautoGroupIncludeFilter
 ----                   ------------------------

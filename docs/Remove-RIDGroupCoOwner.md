@@ -1,7 +1,7 @@
 ---
 external help file: RapidID-help.xml
 Module Name: RapidID
-online version: https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupCoOwner.md
+online version: https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md
 schema: 2.0.0
 ---
 
@@ -17,7 +17,7 @@ Remove-RIDGroupCoOwner [-Identity] <String> [-Member] <String> [-Server <String>
 ```
 
 ## DESCRIPTION
-The Remove-RIDGroupCoOWner cmdlet removes the target user from an Active Directory group's idautoGroupCoOwners.
+The Remove-RIDGroupCoOwner cmdlet removes the target user from an Active Directory group's idautoGroupCoOwners.
 
 The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $<localGroupObject> or pass a group object through the pipeline to the Identity parameter.
 
@@ -28,14 +28,14 @@ The Identity parameter specifies the Active Directory group to get. You can iden
 PS C:\> Remove-RIDGroupCoOwner -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local"
 ```
 
-This command removes someone from idautoGroupCoOWners property value for group name testGroup.
+This command removes someone from idautoGroupCoOwners property value for group name testGroup.
 
 ### Example 2
 ```powershell
 PS C:\> Remove-RIDGroupCoOwner -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local" -Server DC01
 ```
 
-This command removes someone from idautoGroupCoOWners property value for group name testGroup on Domain Controller DC01.
+This command removes someone from idautoGroupCoOwners property value for group name testGroup on Domain Controller DC01.
 
 ## PARAMETERS
 
@@ -117,8 +117,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [Get-RIDGroupCoOwner](https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupCoOwner.md)
 
-[Remove-RIDGroupCoOwner](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md)
-
-[Set-RIDGrouCoOWner](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md)
+[Set-RIDGrouCoOWner](https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupCoOwner.md)
 
 [Test-RIDGroupCoOwner](https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupCoOwner.md)

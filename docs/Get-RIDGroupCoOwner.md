@@ -17,7 +17,7 @@ Get-RIDGroupCoOwner [-Identity] <String> [-Server <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The Get-RIDGroupCoOWner cmdlet retrives an Active Directory group's idautoGroupCoOwners.
+The Get-RIDGroupCoOwner cmdlet retrives an Active Directory group's idautoGroupCoOwners.
 
 The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $<localGroupObject> or pass a group object through the pipeline to the Identity parameter.
 
@@ -33,7 +33,7 @@ name      idautoGroupCoOwners
 TestGroup {CN=someone,OU=Users,DC=Domain,DC=Local}
 ```
 
-This command retrives idautoGroupCoOWners property for group name testGroup.
+This command retrives idautoGroupCoOwners property for group name testGroup.
 
 ### Example 2
 ```powershell
@@ -44,7 +44,7 @@ name      idautoGroupCoOwners
 TestGroup {CN=someone,OU=Users,DC=Domain,DC=Local}
 ```
 
-TThis command retrives idautoGroupCoOWners property for group name testGroup on Domain Controller DC01.
+TThis command retrives idautoGroupCoOwners property for group name testGroup on Domain Controller DC01.
 
 
 ## PARAMETERS
@@ -112,6 +112,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [Remove-RIDGroupCoOwner](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md)
 
-[Set-RIDGrouCoOWner](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md)
+[Set-RIDGrouCoOWner](https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupCoOwner.md)
 
 [Test-RIDGroupCoOwner](https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupCoOwner.md)

@@ -17,7 +17,7 @@ Test-RIDGroupCoOwner [-Identity] <String> [-Server <String>] [<CommonParameters>
 ```
 
 ## DESCRIPTION
-The Test-RIDGroupCoOWner cmdlet tests if an Active Directory group's idautoGroupCoOwners has atleast a single CoOwner returning True/False.
+The Test-RIDGroupCoOwner cmdlet tests if an Active Directory group's idautoGroupCoOwners has atleast a single CoOwner returning True/False.
 
 The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $<localGroupObject> or pass a group object through the pipeline to the Identity parameter.
 
@@ -31,14 +31,14 @@ PS C:\> Test-RIDGroupCoOwner -Identity TestGroup
 False
 ```
 
-This command tests if idautoGroupCoOWners property for group name testGroup has at least one CoOwner.
+This command tests if idautoGroupCoOwners property for group name testGroup has at least one CoOwner.
 
 ### Example 2
 ```powershell
 PS C:\> Remove-RIDGroupCoOwner -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local" -Server DC01
 ```
 
-This command tests if idautoGroupCoOWners property for group name testGroup has at least one CoOwner on Domain Controller DC01.
+This command tests if idautoGroupCoOwners property for group name testGroup has at least one CoOwner on Domain Controller DC01.
 
 ## PARAMETERS
 
@@ -107,4 +107,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [Remove-RIDGroupCoOwner](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md)
 
-[Set-RIDGrouCoOWner](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md)
+[Set-RIDGrouCoOWner](https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupCoOwner.md)
