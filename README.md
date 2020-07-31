@@ -31,7 +31,7 @@ Install-Module RapidID
     - [Clear-RIDGroupCoOwner](docs/Clear-RIDGroupCoOwner.md)
     - [Get-RIDGroupCoOwner](docs/Get-RIDGroupCoOwner.md)
     - [Set-RIDGroupCoOwner](docs/Set-RIDGroupCoOwner.md)
-    - [Remove-RIDGroupLogic](docs/Remove-RIDGroupLogic.md)
+    - [Remove-RIDGroupCoOwner](docs/Remove-RIDGroupCoOwner.md)
     - [Test-RIDGroupCoOwner](docs/Test-RIDGroupCoOwner.md)
 
 ## Changes and versioning
