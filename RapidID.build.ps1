@@ -60,6 +60,7 @@ task ModuleBuild Clean, DocBuild, {
         'Minor' {
             $minor++
             $patch = 0
+            $newVersion = [version]"$major.$minor.$patch"
             Write-Verbose "Bumping module version to [$newVersion]"
             Update-ModuleManifest -Path $manifestPath -ModuleVersion $newVersion
             $moduleVersion = (Test-ModuleManifest -Path $manifestPath).Version
@@ -68,6 +69,7 @@ task ModuleBuild Clean, DocBuild, {
             $major++
             $minor = 0
             $patch = 0
+            $newVersion = [version]"$major.$minor.$patch"
             Write-Verbose "Bumping module version to [$newVersion]"
             Update-ModuleManifest -Path $manifestPath -ModuleVersion $newVersion
             $moduleVersion = (Test-ModuleManifest -Path $manifestPath).Version
