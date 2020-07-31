@@ -1,5 +1,5 @@
 $FunctionName =  "Get-RIDGroupLogic"
-Describe 'Get-RIDGroupLogic' -Tag "Get-RIDGroupLogic" {
+Describe 'Get-RIDGroupLogic' -Tag 'Get-RIDGroupLogic','RIDGroupLogic' {
     BeforeAll {
         Mock Get-ADDomainController {
             [PSCustomObject]@{
@@ -16,7 +16,7 @@ Describe 'Get-RIDGroupLogic' -Tag "Get-RIDGroupLogic" {
 		It 'should have Identity as mandatory' {
 			{Get-RIDGroupLogic -Identity $null} | Should -Throw
 		}
-		It 'should have Help along with Description and examples' {
+		It 'should have Help' {
 			$helpinfo | Should -Not -BeNullOrEmpty
 		}
 		It 'should have Help containing examples, Description, and Details' {

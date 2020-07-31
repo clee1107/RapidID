@@ -1,23 +1,20 @@
-$FunctionName =  "Set-RIDGroupLogic"
-Describe 'Set-RIDGroupLogic' -Tag 'Set-RIDGroupLogic','RIDGroupLogic' {
+$FunctionName =  "Get-RIDGroupCoOwner"
+Describe 'Get-RIDGroupCoOwner' -Tag 'Get-RIDGroupCoOwner','RIDGroupCoOwner' {
     BeforeAll {
         Mock Get-ADDomainController {
             [PSCustomObject]@{
                 HostName = 'dc1.domain.com'
             }
         }
-        Mock Set-ADGroup {
-            Return $Null
-        }
     }
     Context 'Parameter & Help  Checks' {
 		Set-StrictMode -Version latest
 		BeforeAll {
-			$helpinfo = Get-Help Set-RIDGroupLogic
+			$helpinfo = Get-Help Get-RIDGroupCoOwner
 		}
 
 		It 'should have Identity as mandatory' {
-			{Set-RIDGroupLogic -Identity $null} | Should -Throw
+			{Get-RIDGroupCoOwner -Identity $null} | Should -Throw
 		}
 		It 'should have Help' {
 			$helpinfo | Should -Not -BeNullOrEmpty
@@ -29,17 +26,23 @@ Describe 'Set-RIDGroupLogic' -Tag 'Set-RIDGroupLogic','RIDGroupLogic' {
 		}
 	}
     Context 'function checks' {
-        It 'should call Set-ADGroup' {
-
-            Set-RIDGroupLogic -Identity "GroupWithLogic" -Logic "Logic"
-
-            Should -Invoke Set-ADGroup -Times 1 -Scope It
+        BeforeAll {
+            Mock Get-ADGroup {
+                [PSCustomObject]@{
+                    name                     = 'PesterGroup'
+                    idautoGroupCoOwners       = "DN"
+                }
+            }
         }
-        It 'should call -add @(idautogroupincludefilter)' {
-            Set-RIDGroupLogic -Identity "GroupWithLogic" -Logic "Logic"
+        It 'should call Get-ADGroup' {
+            Get-RIDGroupCoOwner -Identity "PesterGroup"
 
-            Assert-MockCalled 'Set-ADGroup' -ParameterFilter { $Add.ContainsKey("idautoGroupIncludeFilter") } -Scope It -Exactly 1
+            Should -Invoke Get-ADGroup -Times 1 -Scope It
         }
+        It 'should return idautoGroupCoOwners value' {
+            (Get-RIDGroupCoOwner -Identity "PesterGroup").idautoGroupCoOwners | Should -BeTrue
+        }
+
     }
     Context 'Code Quality check - ScriptAnalyzer' {
         $Path = Get-ChildItem -Path .\src -Filter "*$FunctionName*" -Recurse | Select-Object -ExpandProperty FullName

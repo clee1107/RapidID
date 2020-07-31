@@ -18,9 +18,9 @@ Install-Module RapidID
 
 ## Function Sets
 - ### RIDGroupLogic
-    Comprised of four (4) commands (Get, Set, Remove, Test).
+    Comprised of four (4) commands (Clear, Get, Set, Test).
     - [Get-RIDGroupLogic](docs/Get-RIDGroupLogic.md)
-    - [Remove-RIDGroupLogic](docs/Remove-RIDGroupLogic.md)
+    - [Clear-RIDGroupLogic](docs/Clear-RIDGroupLogic.md)
     - [Set-RIDGroupLogic](docs/Set-RIDGroupLogic.md)
     - [Test-RIDGroupLogic](docs/Test-RIDGroupLogic.md)
 

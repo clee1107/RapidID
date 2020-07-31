@@ -1,4 +1,4 @@
-function Remove-RIDGroupLogic {
+function Clear-RIDGroupLogic {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
@@ -21,7 +21,7 @@ function Remove-RIDGroupLogic {
                     Write-Verbose -Message "Cleared include logic for $Identity"
                 }
                 Catch {
-                        Throw "Failed to remove include logic for $Identity"
+                        Throw "Failed to clear include logic for $Identity"
                 }
         ## endregion
     }
