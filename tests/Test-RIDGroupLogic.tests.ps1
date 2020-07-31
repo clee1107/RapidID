@@ -33,6 +33,15 @@ Describe 'Test-RIDGroupLogic' -Tag "Test-RIDGroupLogic" {
             (Test-RIDGroupLogic -Identity "GroupWithLogic") | Should -BeFalse
         }
     }
+    Context 'Group doesn''t exists' {
+        BeforeAll {
+            Mock Get-ADGroup {
+            }
+        }
+        It 'target group doesn''t exist, should be False' {
+            Test-RIDGroupLogic -Identity "GroupWithLogic" | Should -BeFalse
+        }
+    }
     Context 'Code Quality check - ScriptAnalyzer' {
         $Path = Get-ChildItem -Path .\src -Filter "*$FunctionName*" -Recurse | Select-Object -ExpandProperty FullName
         $ScriptAnalyzerResults = Invoke-ScriptAnalyzer -Path $Path -Severity Warning
