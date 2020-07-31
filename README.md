@@ -4,6 +4,8 @@
 
 Purpose of this module is to simplify modifying extended Active Directory (AD) attributes created and used by Identity Automations Raapid Identity Suite.
 
+Azure Dev Ops Project: [RapidID](https://dev.azure.com/chrislee1107/RapidID)
+
 ## Disclaimer
 This project is to be considered a proof-of-concept and not a supported product.
 
@@ -18,15 +20,25 @@ Install-Module RapidID
 
 ## Function Sets
 - ### RIDGroupLogic
-    Comprised of four (4) commands (Clear, Get, Set, Test).
-    - [Get-RIDGroupLogic](docs/Get-RIDGroupLogic.md)
+    Function set allows for management of idautogroupincludefilter.
     - [Clear-RIDGroupLogic](docs/Clear-RIDGroupLogic.md)
+    - [Get-RIDGroupLogic](docs/Get-RIDGroupLogic.md)
     - [Set-RIDGroupLogic](docs/Set-RIDGroupLogic.md)
     - [Test-RIDGroupLogic](docs/Test-RIDGroupLogic.md)
+
+- ### RIDGroupCoOwner
+    Function set allows for management of idautogroupincludefilter.
+    - [Clear-RIDGroupCoOwner](docs/Clear-RIDGroupCoOwner.md)
+    - [Get-RIDGroupCoOwner](docs/Get-RIDGroupCoOwner.md)
+    - [Set-RIDGroupCoOwner](docs/Set-RIDGroupCoOwner.md)
+    - [Remove-RIDGroupLogic](docs/Remove-RIDGroupLogic.md)
+    - [Test-RIDGroupCoOwner](docs/Test-RIDGroupCoOwner.md)
 
 ## Changes and versioning
 
 Modules in this repository will use the semantic versioning model to declare breaking changes from v1.0.0. Prior to v1.0.0, breaking changes may be introduced in minor (0.x.0) version increments.
+
+For running version changes consult [ChangeLog](docs/changelog.md).
 
 ## Maintainers
 
