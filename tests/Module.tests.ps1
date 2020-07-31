@@ -1,4 +1,4 @@
-$buildPath = $PSScriptRoot.replace('tests','build')
+<#$buildPath = $PSScriptRoot.replace('tests','build')
 $moduleName = "RapidID"
 $modulePath = "$buildPath\$moduleName"
 
@@ -16,7 +16,7 @@ Describe "RapidID Module" {
             $Commands -contains 'Test-RIDGroupLogic' | Should -Be True
         }
     }
-}
+}#>
 
 <# Generate Commands tests
 $String = @"
