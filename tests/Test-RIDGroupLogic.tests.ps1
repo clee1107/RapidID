@@ -7,6 +7,24 @@ Describe 'Test-RIDGroupLogic' -Tag "Test-RIDGroupLogic" {
             }
         }
     }
+    Context 'Parameter & Help  Checks' {
+		Set-StrictMode -Version latest
+		BeforeAll {
+			$helpinfo = Get-Help Test-RIDGroupLogic
+		}
+
+		It 'should have Identity as mandatory' {
+			{Test-RIDGroupLogic -Identity $null} | Should -Throw
+		}
+		It 'should have Help along with Description and examples' {
+			$helpinfo | Should -Not -BeNullOrEmpty
+		}
+		It 'should have Help containing examples, Description, and Details' {
+			$helpinfo.examples | Should -Not -BeNullOrEmpty  # should have examples
+            $helpinfo.Details | Should -Not -BeNullOrEmpty   # Should have Details in the Help
+            $helpinfo.Description | Should -Not -BeNullOrEmpty # Should have a Descriptiong for the Function
+		}
+	}
     Context 'Group Exists, Filter set' {
         BeforeAll {
             Mock Get-ADGroup {
