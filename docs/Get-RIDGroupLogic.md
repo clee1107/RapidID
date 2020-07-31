@@ -122,8 +122,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
-[Remove-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupLogic.md)
+[Remove-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Clear-RIDGroupLogic.md)
 
-[Set-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupLogic.md)
+[Set-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupLogic.md)
 
 [Test-RIDGroupLogic](https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupLogic.md)

@@ -1,5 +1,5 @@
-$FunctionName =  "Remove-RIDGroupLogic"
-Describe 'Remove-RIDGroupLogic' -Tag 'Remove-RIDGroupLogic','RIDGroupLogic' {
+$FunctionName =  "Clear-RIDGroupLogic"
+Describe 'Clear-RIDGroupLogic' -Tag 'Clear-RIDGroupLogic','RIDGroupLogic' {
     BeforeAll {
         Mock Get-ADDomainController {
             [PSCustomObject]@{
@@ -16,11 +16,11 @@ Describe 'Remove-RIDGroupLogic' -Tag 'Remove-RIDGroupLogic','RIDGroupLogic' {
 	Context 'Parameter & Help  Checks' {
 		Set-StrictMode -Version latest
 		BeforeAll {
-			$helpinfo = Get-Help Remove-RIDGroupLogic
+			$helpinfo = Get-Help Clear-RIDGroupLogic
 		}
 
 		It 'should have Identity as mandatory' {
-			{Remove-RIDGroupLogic -Identity $null} | Should -Throw
+			{Clear-RIDGroupLogic -Identity $null} | Should -Throw
 		}
 		It 'should have Help' {
 			$helpinfo | Should -Not -BeNullOrEmpty
@@ -34,12 +34,12 @@ Describe 'Remove-RIDGroupLogic' -Tag 'Remove-RIDGroupLogic','RIDGroupLogic' {
 	Context 'function checks' {
         It 'should call Set-ADGroup' {
 
-            Remove-RIDGroupLogic -Identity "GroupWithLogic"
+            Clear-RIDGroupLogic -Identity "GroupWithLogic"
 
             Should -Invoke Set-ADGroup -Times 1 -Scope It
         }
         It 'should call -clear @(idautogroupincludefilter)' {
-            Remove-RIDGroupLogic -Identity "GroupWithLogic"
+            Clear-RIDGroupLogic -Identity "GroupWithLogic"
 
             Assert-MockCalled 'Set-ADGroup' -ParameterFilter { $Clear -eq 'idautoGroupIncludeFilter' } -Scope It -Exactly 1
         }
