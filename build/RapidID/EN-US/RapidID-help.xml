@@ -120,16 +120,16 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; Remove-RIDGroupCoOwner -Identity TestGroup</dev:code>
+        <dev:code>PS C:\&gt; Clear-RIDGroupCoOwner -Identity TestGroup</dev:code>
         <dev:remarks>
-          <maml:para>This command removes all CoOwners from idautoGroupCoOWners property value for group name testGroup.</maml:para>
+          <maml:para>This command removes all CoOwners from idautoGroupCoOwners property value for group name testGroup.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------------------------- Example 2 --------------------------</maml:title>
         <dev:code>PS C:\&gt; Clear-RIDGroupCoOwner -Identity TestGroup -Server DC01</dev:code>
         <dev:remarks>
-          <maml:para>This command removes all CoOwners from idautoGroupCoOWners property value for group name testGroup on Domain Controller DC01.</maml:para>
+          <maml:para>This command removes all CoOwners from idautoGroupCoOwners property value for group name testGroup on Domain Controller DC01.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -148,7 +148,7 @@
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Set-RIDGrouCoOWner</maml:linkText>
-        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md</maml:uri>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupCoOwner.md</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Test-RIDGroupCoOwner</maml:linkText>
@@ -310,6 +310,162 @@
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Clear-RIDGroupStaticMember</command:name>
+      <command:verb>Clear</command:verb>
+      <command:noun>RIDGroupStaticMember</command:noun>
+      <maml:description>
+        <maml:para>Clear all members from idautoGroupStaticIncludes value from an Active Directory group.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Clear-RIDGroupStaticMember cmdlet removes all static members from an Active Directory group's idautoGroupStaticIncludes.</maml:para>
+      <maml:para>The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $&lt;localGroupObject&gt; or pass a group object through the pipeline to the Identity parameter.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Clear-RIDGroupStaticMember</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Identity</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory group object by providing SAM account name (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+            <maml:para>Domain name values:</maml:para>
+            <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para></maml:para>
+            <maml:para>Directory server values:</maml:para>
+            <maml:para>--Fully qualified directory server name</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para>--Fully qualified directory server name and port</maml:para>
+            <maml:para></maml:para>
+            <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+            <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+            <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Identity</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory group object by providing SAM account name (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+          <maml:para>Domain name values:</maml:para>
+          <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para></maml:para>
+          <maml:para>Directory server values:</maml:para>
+          <maml:para>--Fully qualified directory server name</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para>--Fully qualified directory server name and port</maml:para>
+          <maml:para></maml:para>
+          <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+          <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+          <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Clear-RIDGroupStaticMember -Identity TestGroup</dev:code>
+        <dev:remarks>
+          <maml:para>This command removes all static members from idautoGroupStaticIncludes property value for group name testGroup.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Clear-RIDGroupStaticMember -Identity TestGroup -Server DC01</dev:code>
+        <dev:remarks>
+          <maml:para>This command removes all static members from idautoGroupStaticIncludes property value for group name testGroup on Domain Controller DC01.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Clear-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Get-RIDGroupCoOwner</command:name>
       <command:verb>Get</command:verb>
       <command:noun>RIDGroupCoOwner</command:noun>
@@ -318,7 +474,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The Get-RIDGroupCoOWner cmdlet retrives an Active Directory group's idautoGroupCoOwners.</maml:para>
+      <maml:para>The Get-RIDGroupCoOwner cmdlet retrives an Active Directory group's idautoGroupCoOwners.</maml:para>
       <maml:para>The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $&lt;localGroupObject&gt; or pass a group object through the pipeline to the Identity parameter.</maml:para>
     </maml:description>
     <command:syntax>
@@ -434,7 +590,7 @@ name      idautoGroupCoOwners
 ----      -------------------
 TestGroup {CN=someone,OU=Users,DC=Domain,DC=Local}</dev:code>
         <dev:remarks>
-          <maml:para>This command retrives idautoGroupCoOWners property for group name testGroup.</maml:para>
+          <maml:para>This command retrives idautoGroupCoOwners property for group name testGroup.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -445,7 +601,7 @@ name      idautoGroupCoOwners
 ----      -------------------
 TestGroup {CN=someone,OU=Users,DC=Domain,DC=Local}</dev:code>
         <dev:remarks>
-          <maml:para>TThis command retrives idautoGroupCoOWners property for group name testGroup on Domain Controller DC01.</maml:para>
+          <maml:para>TThis command retrives idautoGroupCoOwners property for group name testGroup on Domain Controller DC01.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -464,7 +620,7 @@ TestGroup {CN=someone,OU=Users,DC=Domain,DC=Local}</dev:code>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Set-RIDGrouCoOWner</maml:linkText>
-        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md</maml:uri>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupCoOwner.md</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Test-RIDGroupCoOwner</maml:linkText>
@@ -610,13 +766,13 @@ testGroupWithLogic</dev:code>
       </command:example>
       <command:example>
         <maml:title>-------------------------- Example 2 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; Get-RIDGroupLogic -Identity testGroupWithLogic
+        <dev:code>PS C:\&gt; Get-RIDGroupLogic -Identity testGroupWithLogic -Server DC01
 
 name                idautoGroupIncludeFilter
 ----                ------------------------
 testGroupWithLogic  (&amp;(employeetype=staff))
 
-PS C:\&gt; Get-RIDGroupLogic -Identity testGroupWithOutLogic
+PS C:\&gt; Get-RIDGroupLogic -Identity testGroupWithOutLogic -Server DC01
 
 name                   idautoGroupIncludeFilter
 ----                   ------------------------
@@ -632,7 +788,7 @@ testGroupWithOutLogic</dev:code>
         <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupLogic.md</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
-        <maml:linkText>Remove-RIDGroupLogic</maml:linkText>
+        <maml:linkText>Clear-RIDGroupLogic</maml:linkText>
         <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Clear-RIDGroupLogic.md</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
@@ -647,6 +803,170 @@ testGroupWithOutLogic</dev:code>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Get-RIDGroupStaticMember</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RIDGroupStaticMember</command:noun>
+      <maml:description>
+        <maml:para>Retrieve (Get) all members from idautoGroupStaticIncludes value from an Active Directory group.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RIDGroupStaticMember cmdlet retrives an Active Directory group's idautoGroupStaticIncludes.</maml:para>
+      <maml:para>The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $&lt;localGroupObject&gt; or pass a group object through the pipeline to the Identity parameter.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RIDGroupStaticMember</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Identity</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory group object by providing SAM account name (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+            <maml:para>Domain name values:</maml:para>
+            <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para></maml:para>
+            <maml:para>Directory server values:</maml:para>
+            <maml:para>--Fully qualified directory server name</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para>--Fully qualified directory server name and port</maml:para>
+            <maml:para></maml:para>
+            <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+            <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+            <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Identity</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory group object by providing SAM account name (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+          <maml:para>Domain name values:</maml:para>
+          <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para></maml:para>
+          <maml:para>Directory server values:</maml:para>
+          <maml:para>--Fully qualified directory server name</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para>--Fully qualified directory server name and port</maml:para>
+          <maml:para></maml:para>
+          <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+          <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+          <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-RIDGroupStaticMember -Identity TestGroup
+
+name      idautoGroupStaticIncludes
+----      -------------------
+TestGroup {CN=someone,OU=Users,DC=Domain,DC=Local}</dev:code>
+        <dev:remarks>
+          <maml:para>This command retrives idautoGroupStaticIncludes property for group name testGroup.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-RIDGroupStaticMember -Identity TestGroup
+
+name      idautoGroupStaticIncludes
+----      -------------------
+TestGroup {CN=someone,OU=Users,DC=Domain,DC=Local}</dev:code>
+        <dev:remarks>
+          <maml:para>This command retrives idautoGroupStaticIncludes property for group name testGroup on Domain Controller DC01.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Clear-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Clear-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Remove-RIDGroupCoOwner</command:name>
       <command:verb>Remove</command:verb>
       <command:noun>RIDGroupCoOwner</command:noun>
@@ -655,7 +975,7 @@ testGroupWithOutLogic</dev:code>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The Remove-RIDGroupCoOWner cmdlet removes the target user from an Active Directory group's idautoGroupCoOwners.</maml:para>
+      <maml:para>The Remove-RIDGroupCoOwner cmdlet removes the target user from an Active Directory group's idautoGroupCoOwners.</maml:para>
       <maml:para>The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $&lt;localGroupObject&gt; or pass a group object through the pipeline to the Identity parameter.</maml:para>
     </maml:description>
     <command:syntax>
@@ -791,21 +1111,21 @@ testGroupWithOutLogic</dev:code>
         <maml:title>-------------------------- Example 1 --------------------------</maml:title>
         <dev:code>PS C:\&gt; Remove-RIDGroupCoOwner -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local"</dev:code>
         <dev:remarks>
-          <maml:para>This command removes someone from idautoGroupCoOWners property value for group name testGroup.</maml:para>
+          <maml:para>This command removes someone from idautoGroupCoOwners property value for group name testGroup.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------------------------- Example 2 --------------------------</maml:title>
         <dev:code>PS C:\&gt; Remove-RIDGroupCoOwner -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local" -Server DC01</dev:code>
         <dev:remarks>
-          <maml:para>This command removes someone from idautoGroupCoOWners property value for group name testGroup on Domain Controller DC01.</maml:para>
+          <maml:para>This command removes someone from idautoGroupCoOwners property value for group name testGroup on Domain Controller DC01.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupCoOwner.md</maml:uri>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-RIDGroupCoOwner</maml:linkText>
@@ -816,16 +1136,192 @@ testGroupWithOutLogic</dev:code>
         <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupCoOwner.md</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
-        <maml:linkText>Remove-RIDGroupCoOwner</maml:linkText>
-        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md</maml:uri>
-      </maml:navigationLink>
-      <maml:navigationLink>
         <maml:linkText>Set-RIDGrouCoOWner</maml:linkText>
-        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md</maml:uri>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupCoOwner.md</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Test-RIDGroupCoOwner</maml:linkText>
         <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupCoOwner.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-RIDGroupStaticMember</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>RIDGroupStaticMember</command:noun>
+      <maml:description>
+        <maml:para>Remove member from idautoGroupStaticIncludes value from an Active Directory group.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Remove-RIDGroupStaticMember cmdlet removes the target user from an Active Directory group's idautoGroupStaticIncludes.</maml:para>
+      <maml:para>The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $&lt;localGroupObject&gt; or pass a group object through the pipeline to the Identity parameter.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-RIDGroupStaticMember</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Identity</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory group object by providing SAM account name (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="TargetCoOwner, User">
+          <maml:name>Member</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory user object by providing Distinguised Name (DistinguishedName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+            <maml:para>Domain name values:</maml:para>
+            <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para></maml:para>
+            <maml:para>Directory server values:</maml:para>
+            <maml:para>--Fully qualified directory server name</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para>--Fully qualified directory server name and port</maml:para>
+            <maml:para></maml:para>
+            <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+            <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+            <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Identity</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory group object by providing SAM account name (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="TargetCoOwner, User">
+        <maml:name>Member</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory user object by providing Distinguised Name (DistinguishedName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+          <maml:para>Domain name values:</maml:para>
+          <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para></maml:para>
+          <maml:para>Directory server values:</maml:para>
+          <maml:para>--Fully qualified directory server name</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para>--Fully qualified directory server name and port</maml:para>
+          <maml:para></maml:para>
+          <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+          <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+          <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Remove-RIDGroupStaticMember -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local"</dev:code>
+        <dev:remarks>
+          <maml:para>This command removes someone from idautoGroupStaticIncludes property value for group name testGroup.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Remove-RIDGroupStaticMember -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local" -Server DC01</dev:code>
+        <dev:remarks>
+          <maml:para>This command removes someone from idautoGroupStaticIncludes property value for group name testGroup on Domain Controller DC01.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Clear-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Clear-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupStaticMember.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -839,7 +1335,7 @@ testGroupWithOutLogic</dev:code>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The Set-RIDGroupCoOWner cmdlet set (adds) the target user to an Active Directory group's idautoGroupCoOwners.</maml:para>
+      <maml:para>The Set-RIDGroupCoOwner cmdlet set (adds) the target user to an Active Directory group's idautoGroupCoOwners.</maml:para>
       <maml:para>The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $&lt;localGroupObject&gt; or pass a group object through the pipeline to the Identity parameter.</maml:para>
     </maml:description>
     <command:syntax>
@@ -975,21 +1471,21 @@ testGroupWithOutLogic</dev:code>
         <maml:title>-------------------------- Example 1 --------------------------</maml:title>
         <dev:code>PS C:\&gt; Set-RIDGroupCoOwner -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local"</dev:code>
         <dev:remarks>
-          <maml:para>This command sets "CN=someone,OU=Users,DC=Domain,DC=Local" to idautoGroupCoOWners property for group name testGroup.</maml:para>
+          <maml:para>This command sets "CN=someone,OU=Users,DC=Domain,DC=Local" to idautoGroupCoOwners property for group name testGroup.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------------------------- Example 2 --------------------------</maml:title>
         <dev:code>PS C:\&gt; Set-RIDGroupCoOwner -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local" -Server DC01</dev:code>
         <dev:remarks>
-          <maml:para>This command sets "CN=someone,OU=Users,DC=Domain,DC=Local" to idautoGroupCoOWners property for group name testGroup on Domain Controller DC01.</maml:para>
+          <maml:para>This command sets "CN=someone,OU=Users,DC=Domain,DC=Local" to idautoGroupCoOwners property for group name testGroup on Domain Controller DC01.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md</maml:uri>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupCoOwner.md</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-RIDGroupCoOwner</maml:linkText>
@@ -1192,6 +1688,186 @@ testGroupWithOutLogic</dev:code>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Set-RIDGroupStaticMember</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>RIDGroupStaticMember</command:noun>
+      <maml:description>
+        <maml:para>Set a member to idautoGroupStaticIncludes value from an Active Directory group.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Set-RIDGroupStaticMember cmdlet set (adds) the target user to an Active Directory group's idautoGroupStaticIncludes.</maml:para>
+      <maml:para>The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $&lt;localGroupObject&gt; or pass a group object through the pipeline to the Identity parameter.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-RIDGroupStaticMember</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="TargetGroup, Group">
+          <maml:name>Identity</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory group object by providing SAM account name (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="TargetCoOwner, User">
+          <maml:name>Member</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory user object by providing Distinguised Name (DistinguishedName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+            <maml:para>Domain name values:</maml:para>
+            <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para></maml:para>
+            <maml:para>Directory server values:</maml:para>
+            <maml:para>--Fully qualified directory server name</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para>--Fully qualified directory server name and port</maml:para>
+            <maml:para></maml:para>
+            <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+            <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+            <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="TargetGroup, Group">
+        <maml:name>Identity</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory group object by providing SAM account name (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="TargetCoOwner, User">
+        <maml:name>Member</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory user object by providing Distinguised Name (DistinguishedName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+          <maml:para>Domain name values:</maml:para>
+          <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para></maml:para>
+          <maml:para>Directory server values:</maml:para>
+          <maml:para>--Fully qualified directory server name</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para>--Fully qualified directory server name and port</maml:para>
+          <maml:para></maml:para>
+          <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+          <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+          <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Set-RIDGroupStaticMember -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local"</dev:code>
+        <dev:remarks>
+          <maml:para>This command sets "CN=someone,OU=Users,DC=Domain,DC=Local" to idautoGroupStaticIncludes property for group name testGroup.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Set-RIDGroupStaticMember -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local" -Server DC01</dev:code>
+        <dev:remarks>
+          <maml:para>This command sets "CN=someone,OU=Users,DC=Domain,DC=Local" to idautoGroupStaticIncludes property for group name testGroup on Domain Controller DC01.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Clear-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Clear-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Test-RIDGroupCoOwner</command:name>
       <command:verb>Test</command:verb>
       <command:noun>RIDGroupCoOwner</command:noun>
@@ -1200,7 +1876,7 @@ testGroupWithOutLogic</dev:code>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The Test-RIDGroupCoOWner cmdlet tests if an Active Directory group's idautoGroupCoOwners has atleast a single CoOwner returning True/False.</maml:para>
+      <maml:para>The Test-RIDGroupCoOwner cmdlet tests if an Active Directory group's idautoGroupCoOwners has atleast a single CoOwner returning True/False.</maml:para>
       <maml:para>The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $&lt;localGroupObject&gt; or pass a group object through the pipeline to the Identity parameter.</maml:para>
     </maml:description>
     <command:syntax>
@@ -1314,14 +1990,14 @@ testGroupWithOutLogic</dev:code>
 
 False</dev:code>
         <dev:remarks>
-          <maml:para>This command tests if idautoGroupCoOWners property for group name testGroup has at least one CoOwner.</maml:para>
+          <maml:para>This command tests if idautoGroupCoOwners property for group name testGroup has at least one CoOwner.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------------------------- Example 2 --------------------------</maml:title>
         <dev:code>PS C:\&gt; Remove-RIDGroupCoOwner -Identity TestGroup -Member "CN=someone,OU=Users,DC=Domain,DC=Local" -Server DC01</dev:code>
         <dev:remarks>
-          <maml:para>This command tests if idautoGroupCoOWners property for group name testGroup has at least one CoOwner on Domain Controller DC01.</maml:para>
+          <maml:para>This command tests if idautoGroupCoOwners property for group name testGroup has at least one CoOwner on Domain Controller DC01.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -1344,7 +2020,7 @@ False</dev:code>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Set-RIDGrouCoOWner</maml:linkText>
-        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupCoOwner.md</maml:uri>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupCoOwner.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1510,6 +2186,167 @@ false</dev:code>
       <maml:navigationLink>
         <maml:linkText>Set-RIDGroupLogic</maml:linkText>
         <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupLogic.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Test-RIDGroupStaticMember</command:name>
+      <command:verb>Test</command:verb>
+      <command:noun>RIDGroupStaticMember</command:noun>
+      <maml:description>
+        <maml:para>Check if group has any static members.  Return True/False.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Test-RIDGroupStaticMember cmdlet views a specified group object's idautoGroupStaticIncludes attribute.</maml:para>
+      <maml:para>The Identity parameter specifies the Active Directory group to get. You can identify a group by its name. You can also set the parameter to a group object variable, such as $&lt;localGroupObject&gt; or pass a group object through the pipeline to the Identity parameter.</maml:para>
+      <maml:para>This cmdlet returns either True if idautoGroupStaticIncludes from group object properties is populated or False if idautoGroupStaticIncludes from group object properties is empty or NULL.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Test-RIDGroupStaticMember</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Identity</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory group object by providing SAM account name (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+            <maml:para>Domain name values:</maml:para>
+            <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para></maml:para>
+            <maml:para>Directory server values:</maml:para>
+            <maml:para>--Fully qualified directory server name</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para>--Fully qualified directory server name and port</maml:para>
+            <maml:para></maml:para>
+            <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+            <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+            <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Identity</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory group object by providing SAM account name (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+          <maml:para>Domain name values:</maml:para>
+          <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para></maml:para>
+          <maml:para>Directory server values:</maml:para>
+          <maml:para>--Fully qualified directory server name</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para>--Fully qualified directory server name and port</maml:para>
+          <maml:para></maml:para>
+          <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+          <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+          <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Test-RIDGroupStaticMember -Identity testGroup
+
+true</dev:code>
+        <dev:remarks>
+          <maml:para>This command displays idautoGroupStaticIncludes property value for group name testGroup.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Test-RIDGroupStaticMember -Identity testGroup -Server DC01
+
+true</dev:code>
+        <dev:remarks>
+          <maml:para>This command displays idautoGroupStaticIncludes property value for group name testGroup on Domain Controller DC01.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Clear-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Clear-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Remove-RIDGroupStaticMember.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-RIDGroupStaticMember</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDGroupStaticMember.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
