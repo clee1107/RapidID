@@ -1,5 +1,9 @@
 # ChangeLog for RapidID
 
+##1.4.0
++ Production relase of UserOverrideNote function set
+    + Clear, Get, Set, Test
+
 ## 1.3.0
 + Production relase of UserTermDate function set
     + Clear, Get, Set, Test

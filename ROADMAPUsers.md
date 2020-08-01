@@ -7,6 +7,8 @@ Track the 400+ attributes that need functions written for them
 - ### Completed
    - [X] Add list of all idauto attributes for AD users
    - [X] idautoPersonTermDate
+   - [X] idautoPersonStatusOverride
+
 - ### To Do
    - [ ] idautoChallengeSet
    - [ ] idautoChallengeSetTimestamp
@@ -403,7 +405,6 @@ Track the 400+ attributes that need functions written for them
    - [ ] idautoPersonSponsorEmail
    - [ ] idautoPersonStateID
    - [ ] idautoPersonStatusCode
-   - [ ] idautoPersonStatusOverride
    - [ ] idautoPersonStatusStaff
    - [ ] idautoPersonStatusStudent
    - [ ] idautoPersonStorageQuota
