@@ -94,6 +94,38 @@ function Clear-RIDGroupStaticMember {
 
     }
 }
+function Clear-RIDUserTermDate {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server= (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        ## region Code
+            ## Set logic attribute
+                Write-Verbose -Message "Attempting to clear term date for $Identity"
+                Try {
+                    Set-ADUser -Identity $Identity -Server $Server -Clear idautoPersonTermDate -ErrorAction Stop
+                    Write-Verbose -Message "Cleared term date for $Identity"
+                }
+                Catch {
+                        Throw "Failed to clear term date for $Identity"
+                }
+        ## endregion
+    }
+
+    end {
+
+    }
+}
 function Get-RIDGroupCoOwner {
     [CmdletBinding()]
     param (
@@ -156,6 +188,29 @@ function Get-RIDGroupStaticMember {
 
     process {
         $Object = Get-ADGroup -Identity $Identity -property idautoGroupStaticIncludes -Server $Server | Select-Object -Property name, idautoGroupStaticIncludes
+        Return $Object
+    }
+
+    end {
+
+    }
+}
+function Get-RIDUserTermDate {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        $Object = Get-ADUser -Identity $Identity -property idautoPersonTermDate -Server $Server | Select-Object -Property name, idautoPersonTermDate
         Return $Object
     }
 
@@ -341,6 +396,46 @@ function Set-RIDGroupStaticMember {
 
     }
 }
+function Set-RIDUserTermDate {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [Alias("User")]
+        [String]
+            $Identity,
+        [parameter(Mandatory=$TRUE,Position=1,ValueFromPipelineByPropertyName)]
+        [Alias("TermDate")]
+        [DateTime]
+            $Date,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        ## region Code
+            ##Build Term Date entry
+                $TermDate = "DTD$(Get-Date -Date $Date -Format "yyyyMMdd")"
+            ## Set termdate attribute
+                Write-Verbose -Message "Attempting to set term date for $Identity"
+                Try {
+                    Set-ADUser -Identity $Identity -Server $Server -Add @{idautoPersonTermDate="$TermDate"} -ErrorAction Stop
+                    Write-Verbose -Message "Set term date ($logic) for $Identity"
+                }
+                Catch
+                    {
+                        Throw "Failed to set term date ($TermDate) for $Identity"
+                }
+        ## endregion
+    }
+
+    end {
+
+    }
+}
 function Test-RIDGroupCoOwner {
     [CmdletBinding()]
     param (
@@ -407,6 +502,34 @@ function Test-RIDGroupStaticMember {
 
     process {
         If ($Null -eq (Get-ADGroup -Identity $Identity -Property idautoGroupStaticIncludes -Server $Server | Select-Object -ExpandProperty idautoGroupStaticIncludes))
+            {Write-Output $FALSE -NoEnumerate}
+        Else
+            {Write-Output $TRUE -NoEnumerate}
+    }
+
+    end {
+
+    }
+}
+function Test-RIDUserTermDate {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        If ($Null -eq (Get-ADUser -Identity $Identity -Property idautoPersonTermDate -Server $Server |
+                Select-Object -ExpandProperty idautoPersonTermDate) -OR
+                (Get-ADUser -Identity $Identity -Property idautoPersonTermDate -Server $Server).idautoPersonTermDate.length -le 4
+            )
             {Write-Output $FALSE -NoEnumerate}
         Else
             {Write-Output $TRUE -NoEnumerate}
