@@ -34,6 +34,14 @@ Install-Module RapidID
     - [Remove-RIDGroupCoOwner](docs/Remove-RIDGroupCoOwner.md)
     - [Test-RIDGroupCoOwner](docs/Test-RIDGroupCoOwner.md)
 
+- ### RIDGroupStaticMember
+    Function set allows for management of idautogroupincludefilter.
+    - [Clear-RIDGroupStaticMember](docs/Clear-RIDGroupStaticMember.md)
+    - [Get-RIDGroupStaticMember](docs/Get-RIDGroupStaticMember.md)
+    - [Set-RIDGroupStaticMember](docs/Set-RIDGroupStaticMember.md)
+    - [Remove-RIDGroupStaticMember](docs/Remove-RIDGroupStaticMember.md)
+    - [Test-RIDGroupStaticMember](docs/Test-RIDGroupStaticMember.md)
+
 ## Changes and versioning
 
 Modules in this repository will use the semantic versioning model to declare breaking changes from v1.0.0. Prior to v1.0.0, breaking changes may be introduced in minor (0.x.0) version increments.

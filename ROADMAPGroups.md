@@ -8,6 +8,8 @@ Track the 60+ attributes that need functions written for them
    - [X] Add list of all idauto attributes for AD groups
    - [X] idautoGroupIncludeFilter
    - [X] idautoGroupCoOwners
+   - [X] idautoGroupStaticIncludes
+
 
 - ### To Do
    - [ ] idautoDisabled
@@ -32,7 +34,6 @@ Track the 60+ attributes that need functions written for them
    - [ ] idautoGroupPreviousName
    - [ ] idautoGroupSharePath
    - [ ] idautoGroupStaticExcludes
-   - [ ] idautoGroupStaticIncludes
    - [ ] idautoGroupSyncDSS
    - [ ] idautoGroupSyncInterval
    - [ ] idautoGroupToSystem1

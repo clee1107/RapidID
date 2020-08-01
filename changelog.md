@@ -1,5 +1,9 @@
 # ChangeLog for RapidID
 
+## 1.2.0
++ Production relase of GroupStaticMember function set
+    + Clear, Get, Remove, Set, Test
+
 ## 1.1.0
 + Production release of GroupCoOwner function set
     + Clear, Get, Remove, Set, Test
