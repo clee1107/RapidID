@@ -1,5 +1,9 @@
 # ChangeLog for RapidID
 
+## 1.3.0
++ Production relase of UserTermDate function set
+    + Clear, Get, Set, Test
+
 ## 1.2.0
 + Production relase of GroupStaticMember function set
     + Clear, Get, Remove, Set, Test
