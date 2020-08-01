@@ -93,7 +93,6 @@ task ModuleBuild Clean, DocBuild, {
 
 task Testing {
     Invoke-Pester -Path $testsPath -Show All
-    Invoke-ScriptAnalyzer -Path $srcPath -Recurse
 }
 
 task Publish {
