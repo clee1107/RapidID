@@ -7,6 +7,7 @@ Track the 60+ attributes that need functions written for them
 - ### Completed
    - [X] Add list of all idauto attributes for AD groups
    - [X] idautoGroupIncludeFilter
+   - [X] idautoGroupCoOwners
 
 - ### To Do
    - [ ] idautoDisabled
@@ -15,7 +16,6 @@ Track the 60+ attributes that need functions written for them
    - [ ] idautoGroupCampusID
    - [ ] idautoGroupCollegeID
    - [ ] idautoGroupCoOwnerEditable
-   - [ ] idautoGroupCoOwners
    - [ ] idautoGroupDeprovisionDate
    - [ ] idautoGroupDestOU
    - [ ] idautoGroupDivisionID
