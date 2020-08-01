@@ -42,6 +42,13 @@ Install-Module RapidID
     - [Remove-RIDGroupStaticMember](docs/Remove-RIDGroupStaticMember.md)
     - [Test-RIDGroupStaticMember](docs/Test-RIDGroupStaticMember.md)
 
+- ### RIDUserTermDate
+    Function set allows for management of idautogroupincludefilter.
+    - [Clear-RIDUserTermDate](docs/Clear-RIDUserTermDate.md)
+    - [Get-RIDUserTermDate](docs/Get-RIDUserTermDate.md)
+    - [Set-RIDUserTermDate](docs/Set-RIDUserTermDate.md)
+    - [Test-RIDUserTermDate](docs/Test-RIDUserTermDate.md)
+
 ## Changes and versioning
 
 Modules in this repository will use the semantic versioning model to declare breaking changes from v1.0.0. Prior to v1.0.0, breaking changes may be introduced in minor (0.x.0) version increments.

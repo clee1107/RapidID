@@ -6,6 +6,7 @@ Track the 400+ attributes that need functions written for them
 ## Roadmap
 - ### Completed
    - [X] Add list of all idauto attributes for AD users
+   - [X] idautoPersonTermDate
 - ### To Do
    - [ ] idautoChallengeSet
    - [ ] idautoChallengeSetTimestamp
@@ -446,7 +447,6 @@ Track the 400+ attributes that need functions written for them
    - [ ] idautoPersonTeacherSS
    - [ ] idautoPersonTempEmplID
    - [ ] idautoPersonTempName
-   - [ ] idautoPersonTermDate
    - [ ] idautoPersonTerminationCode
    - [ ] idautoPersonTerminationCodeDescr
    - [ ] idautoPersonTertiaryPhone
