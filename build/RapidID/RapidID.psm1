@@ -94,6 +94,38 @@ function Clear-RIDGroupStaticMember {
 
     }
 }
+function Clear-RIDUserOverrideNote {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server= (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        ## region Code
+            ## Set logic attribute
+                Write-Verbose -Message "Attempting to clear override note(s) for $Identity"
+                Try {
+                    Set-ADUser -Identity $Identity -Server $Server -Clear idautoPersonStatusOverride -ErrorAction Stop
+                    Write-Verbose -Message "Cleared override note(s) for $Identity"
+                }
+                Catch {
+                        Throw "Failed to clear override note(s) for $Identity"
+                }
+        ## endregion
+    }
+
+    end {
+
+    }
+}
 function Clear-RIDUserTermDate {
     [CmdletBinding(SupportsShouldProcess)]
     param (
@@ -188,6 +220,29 @@ function Get-RIDGroupStaticMember {
 
     process {
         $Object = Get-ADGroup -Identity $Identity -property idautoGroupStaticIncludes -Server $Server | Select-Object -Property name, idautoGroupStaticIncludes
+        Return $Object
+    }
+
+    end {
+
+    }
+}
+function Get-RIDUserOverrideNote {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        $Object = Get-ADUser -Identity $Identity -property idautoPersonStatusOverride -Server $Server | Select-Object -Property name, idautoPersonStatusOverride
         Return $Object
     }
 
@@ -396,6 +451,44 @@ function Set-RIDGroupStaticMember {
 
     }
 }
+function Set-RIDUserOverrideNote {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [Alias("User")]
+        [String]
+            $Identity,
+        [parameter(Mandatory=$TRUE,Position=1,ValueFromPipelineByPropertyName)]
+        [Alias("Info")]
+        [String]
+            $Note,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        ## region Code
+            ## Set note attribute
+                Write-Verbose -Message "Attempting to set term date for $Identity"
+                Try {
+                    Set-ADUser -Identity $Identity -Server $Server -Add @{idautoPersonStatusOverride="$note"} -ErrorAction Stop
+                    Write-Verbose -Message "Set term date ($note) for $Identity"
+                }
+                Catch
+                    {
+                        Throw "Failed to set term date ($note) for $Identity"
+                }
+        ## endregion
+    }
+
+    end {
+
+    }
+}
 function Set-RIDUserTermDate {
     [CmdletBinding(SupportsShouldProcess)]
     param (
@@ -502,6 +595,32 @@ function Test-RIDGroupStaticMember {
 
     process {
         If ($Null -eq (Get-ADGroup -Identity $Identity -Property idautoGroupStaticIncludes -Server $Server | Select-Object -ExpandProperty idautoGroupStaticIncludes))
+            {Write-Output $FALSE -NoEnumerate}
+        Else
+            {Write-Output $TRUE -NoEnumerate}
+    }
+
+    end {
+
+    }
+}
+function Test-RIDUserOverrideNote {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        If ($Null -eq (Get-ADUser -Identity $Identity -Property idautoPersonStatusOverride -Server $Server |
+                Select-Object -ExpandProperty idautoPersonStatusOverride))
             {Write-Output $FALSE -NoEnumerate}
         Else
             {Write-Output $TRUE -NoEnumerate}
