@@ -62,6 +62,38 @@ function Clear-RIDGroupLogic {
 
     }
 }
+function Clear-RIDGroupStaticMember {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        ## region Code
+            ## Set logic attribute
+            Write-Verbose -Message "Attempting to clear Static Members for $Identity"
+            Try {
+                Set-ADGroup -Identity $Identity -Server $Server -Clear idautoGroupStaticIncludes -ErrorAction Stop
+                Write-Verbose -Message "Cleared Static Members for $Identity"
+            }
+            Catch {
+                    Throw "Failed to clear Static Members for $Identity"
+            }
+        ## endregion
+    }
+
+    end {
+
+    }
+}
 function Get-RIDGroupCoOwner {
     [CmdletBinding()]
     param (
@@ -108,6 +140,29 @@ function Get-RIDGroupLogic {
 
     }
 }
+function Get-RIDGroupStaticMember {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        $Object = Get-ADGroup -Identity $Identity -property idautoGroupStaticIncludes -Server $Server | Select-Object -Property name, idautoGroupStaticIncludes
+        Return $Object
+    }
+
+    end {
+
+    }
+}
 function Remove-RIDGroupCoOwner {
     [CmdletBinding()]
     param (
@@ -136,6 +191,42 @@ function Remove-RIDGroupCoOwner {
             }
             Catch {
                     Throw "Failed to remove GroupCoOwner ($Member) for $Identity"
+            }
+        ## endregion
+    }
+
+    end {
+
+    }
+}
+function Remove-RIDGroupStaticMember {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [parameter(Mandatory=$TRUE,Position=1,ValueFromPipelineByPropertyName)]
+        [Alias("TargetCoOwner","User")]
+        [String]
+            $Member,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        ## region Code
+            ## Set logic attribute
+            Write-Verbose -Message "Attempting to remove static member ($Member) for $Identity"
+            Try {
+                Set-ADGroup -Identity $Identity -Server $Server -Remove @{idautoGroupStaticIncludes="$Member"} -ErrorAction Stop
+                Write-Verbose -Message "Removed static member ($Member) for $Identity"
+            }
+            Catch {
+                    Throw "Failed to remove static member ($Member) for $Identity"
             }
         ## endregion
     }
@@ -215,6 +306,41 @@ function Set-RIDGroupLogic {
 
     }
 }
+function Set-RIDGroupStaticMember {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [Alias("TargetGroup","Group")]
+        [String]
+            $Identity,
+        [parameter(Mandatory=$TRUE,Position=1,ValueFromPipelineByPropertyName)]
+        [Alias("TargetCoOwner","User")]
+        [String]
+            $Member,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        Write-Verbose -Message "Attempting to set stativ member for $Identity"
+        Try {
+            Set-ADGroup -Identity $Identity -Server $Server -Add @{idautoGroupStaticIncludes="$Member"} -ErrorAction Stop
+            Write-Verbose -Message "Set stativ member ($Member) for $Identity"
+        }
+        Catch
+            {
+                Throw "Failed to set stativ member for $Identity"
+        }
+    }
+
+    end {
+
+    }
+}
 function Test-RIDGroupCoOwner {
     [CmdletBinding()]
     param (
@@ -256,6 +382,31 @@ function Test-RIDGroupLogic {
 
     process {
         If ($Null -eq (Get-ADGroup -Identity $Identity -Property idautoGroupIncludeFilter -Server $Server | Select-Object -ExpandProperty idautoGroupIncludeFilter))
+            {Write-Output $FALSE -NoEnumerate}
+        Else
+            {Write-Output $TRUE -NoEnumerate}
+    }
+
+    end {
+
+    }
+}
+function Test-RIDGroupStaticMember {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        If ($Null -eq (Get-ADGroup -Identity $Identity -Property idautoGroupStaticIncludes -Server $Server | Select-Object -ExpandProperty idautoGroupStaticIncludes))
             {Write-Output $FALSE -NoEnumerate}
         Else
             {Write-Output $TRUE -NoEnumerate}
