@@ -17,12 +17,11 @@ function RIDUserOverrideReport {
             } else {
                 $Searchbase.Split(",")[0].replace("OU=","")
             }
-        $Users = Get-ADUser -SearchBase $SearchBase -Filter * -Properties idautoPersonOverride,idautoPersonStatusOverride,idautostatus
+        $Users = Get-ADUser -SearchBase $Searchbase -LDAPFilter "(|(idautoPersonOverride=*)(idautoPersonStatusOverride=*))" -Properties idautoPersonOverride,idautoPersonStatusOverride,idautostatus
         $Ticker = 0
         ForEach ($User in $Users) {
             $percent = $Ticker * 100 / $Users.count
             Write-Progress -Activity "Quering User Accounts - $SearchBaseName - Total $($Users.count)" -Status "$($Users.count - $ticker) users remaining..." -PercentComplete $percent;
-            If ((Test-RIDUserOverrideNote $user.SamAccountName)) {
                 $UserObj = [pscustomobject]@{
                     name = $user.name
                     enabled = $user.enabled
@@ -33,7 +32,6 @@ function RIDUserOverrideReport {
                     DistinguishedName = $user.DistinguishedName
                 }
             $Report += $UserObj
-            }
             $Ticker ++
         }
 
