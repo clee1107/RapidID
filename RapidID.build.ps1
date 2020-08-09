@@ -28,7 +28,7 @@ task Clean {
 }
 
 task DocInit {
-    New-MarkdownHelp -Module $moduleName -OutputFolder $docPath
+    New-MarkdownHelp -Module $moduleName -OutputFolder $docPath -ErrorAction SilentlyContinue
 }
 
 task DocBuild {

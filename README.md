@@ -56,6 +56,17 @@ Install-Module RapidID
     - [Set-RIDUserOverrideNote](docs/Set-RIDUserOverrideNote.md)
     - [Test-RIDUserOverrideNote](docs/Test-RIDUserOverrideNote.md)
 
+- ### RIDUserOverrideStatus
+    Function set allows for management of idautogroupincludefilter.
+    - [Clear-RIDUserOverrideStatus](docs/Clear-RIDUserOverrideStatus.md)
+    - [Get-RIDUserOverrideStatus](docs/Get-RIDUserOverrideStatus.md)
+    - [Set-RIDUserOverrideStatus](docs/Set-RIDUserOverrideStatus.md)
+    - [Test-RIDUserOverrideStatus](docs/Test-RIDUserOverrideStatus.md)
+
+- ### RIDUserID
+    - [Get-RIDUserID](docs/Get-RIDUserID.md)
+
+
 ## Changes and versioning
 
 Modules in this repository will use the semantic versioning model to declare breaking changes from v1.0.0. Prior to v1.0.0, breaking changes may be introduced in minor (0.x.0) version increments.

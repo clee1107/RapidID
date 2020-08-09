@@ -658,6 +658,197 @@
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Clear-RIDUserOverrideStatus</command:name>
+      <command:verb>Clear</command:verb>
+      <command:noun>RIDUserOverrideStatus</command:noun>
+      <maml:description>
+        <maml:para>Clears values set in RID Override Status.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Clear-RIDUserOverrideStatus cmdlet clears a specified user object's idautoPersonStatusOverride attribute.</maml:para>
+      <maml:para>The Identity parameter specifies the Active Directory user to get. You can identify a user by its name. You can also set the parameter to a user object variable, such as $&lt;localUserObject&gt; or pass a user object through the pipeline to the Identity parameter.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Clear-RIDUserOverrideStatus</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Identity</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory user object by providing SAM (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+            <maml:para>Domain name values:</maml:para>
+            <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para></maml:para>
+            <maml:para>Directory server values:</maml:para>
+            <maml:para>--Fully qualified directory server name</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para>--Fully qualified directory server name and port</maml:para>
+            <maml:para></maml:para>
+            <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+            <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+            <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Identity</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory user object by providing SAM (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+          <maml:para>Domain name values:</maml:para>
+          <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para></maml:para>
+          <maml:para>Directory server values:</maml:para>
+          <maml:para>--Fully qualified directory server name</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para>--Fully qualified directory server name and port</maml:para>
+          <maml:para></maml:para>
+          <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+          <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+          <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:Description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; clear-RIDUserOverrideStatus jbob</dev:code>
+        <dev:remarks>
+          <maml:para>Clears idautoPersonOverride value for user Jim Bob (jbob).</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Clear-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Clear-RIDUserTermDate</command:name>
       <command:verb>Clear</command:verb>
       <command:noun>RIDUserTermDate</command:noun>
@@ -1353,6 +1544,144 @@ TestGroup {CN=someone,OU=Users,DC=Domain,DC=Local}</dev:code>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Get-RIDUserID</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RIDUserID</command:noun>
+      <maml:description>
+        <maml:para>Display desired users idautoID.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RIDUserID cmdlet displays a specified user object's idautoID attribute.</maml:para>
+      <maml:para>The Identity parameter specifies the Active Directory user to get. You can identify a user by its name. You can also set the parameter to a user object variable, such as $&lt;localGroupObject&gt; or pass a user object through the pipeline to the Identity parameter.</maml:para>
+      <maml:para>This cmdlet returns either True if idautoID from group object properties is populated or False if idautoID from group object properties is empty or NULL.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RIDUserID</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Identity</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory user object by providing SAM (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+            <maml:para>Domain name values:</maml:para>
+            <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para></maml:para>
+            <maml:para>Directory server values:</maml:para>
+            <maml:para>--Fully qualified directory server name</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para>--Fully qualified directory server name and port</maml:para>
+            <maml:para></maml:para>
+            <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+            <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+            <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Identity</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory user object by providing SAM (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+          <maml:para>Domain name values:</maml:para>
+          <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para></maml:para>
+          <maml:para>Directory server values:</maml:para>
+          <maml:para>--Fully qualified directory server name</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para>--Fully qualified directory server name and port</maml:para>
+          <maml:para></maml:para>
+          <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+          <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+          <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-RIDUserID -Identity jbob
+
+name idautoID
+---- --------
+jbob 0734f640-456e-11e7-9361-005056a55bb4</dev:code>
+        <dev:remarks>
+          <maml:para>Retrieves idautoid for user Jim Bob (jbob)</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDUserID.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Get-RIDUserOverrideNote</command:name>
       <command:verb>Get</command:verb>
       <command:noun>RIDUserOverrideNote</command:noun>
@@ -1498,6 +1827,155 @@ someone    20200110 - Admin - HD#1234 - Until Further notice</dev:code>
       <maml:navigationLink>
         <maml:linkText>Test-RIDUserOverrideNote</maml:linkText>
         <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDUserOverrideNote.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RIDUserOverrideStatus</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RIDUserOverrideStatus</command:noun>
+      <maml:description>
+        <maml:para>Displays contents of RID Override Status.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RIDUserOverrideStatus cmdlet retrieves a specified user object's idautoPersonStatusOverride attribute.</maml:para>
+      <maml:para>The Identity parameter specifies the Active Directory user to get. You can identify a user by its name. You can also set the parameter to a user object variable, such as $&lt;localUserObject&gt; or pass a user object through the pipeline to the Identity parameter.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RIDUserOverrideStatus</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Identity</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory user object by providing SAM (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+            <maml:para>Domain name values:</maml:para>
+            <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para></maml:para>
+            <maml:para>Directory server values:</maml:para>
+            <maml:para>--Fully qualified directory server name</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para>--Fully qualified directory server name and port</maml:para>
+            <maml:para></maml:para>
+            <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+            <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+            <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Identity</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory user object by providing SAM (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+          <maml:para>Domain name values:</maml:para>
+          <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para></maml:para>
+          <maml:para>Directory server values:</maml:para>
+          <maml:para>--Fully qualified directory server name</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para>--Fully qualified directory server name and port</maml:para>
+          <maml:para></maml:para>
+          <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+          <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+          <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; get-RIDUserOverrideStatus pstestuser
+
+name       idautoPersonOverride
+----       --------------------
+jbob</dev:code>
+        <dev:remarks>
+          <maml:para>Displays idautoPersonOverride value for user jbob.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Clear-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Clear-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDUserOverrideStatus.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -2770,6 +3248,242 @@ someone    20200727</dev:code>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Set-RIDUserOverrideStatus</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>RIDUserOverrideStatus</command:noun>
+      <maml:description>
+        <maml:para>Set targeded users RID Override Status (True/False).</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Set-RIDUserOverrideStatus cmdlet sets a specified user object's idautoPersonOverride attribute.</maml:para>
+      <maml:para>The Identity parameter specifies the Active Directory user to get. You can identify a user by its name. You can also set the parameter to a user object variable, such as $&lt;localUserObject&gt; or pass a user object through the pipeline to the Identity parameter.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-RIDUserOverrideStatus</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="User">
+          <maml:name>Identity</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory user object by providing SAM (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none">
+          <maml:name>Status</maml:name>
+          <maml:Description>
+            <maml:para>Set user overrode status: (True)/Fasle.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>True</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+            <maml:para>Domain name values:</maml:para>
+            <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para></maml:para>
+            <maml:para>Directory server values:</maml:para>
+            <maml:para>--Fully qualified directory server name</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para>--Fully qualified directory server name and port</maml:para>
+            <maml:para></maml:para>
+            <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+            <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+            <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="User">
+        <maml:name>Identity</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory user object by providing SAM (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+          <maml:para>Domain name values:</maml:para>
+          <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para></maml:para>
+          <maml:para>Directory server values:</maml:para>
+          <maml:para>--Fully qualified directory server name</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para>--Fully qualified directory server name and port</maml:para>
+          <maml:para></maml:para>
+          <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+          <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+          <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none">
+        <maml:name>Status</maml:name>
+        <maml:Description>
+          <maml:para>Set user overrode status: (True)/Fasle.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>True</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:Description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Set-RIDUserOverrideStatus -Identity jbob -Status</dev:code>
+        <dev:remarks>
+          <maml:para>Sets idautoPersonOverride to True for user jbob</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Set-RIDUserOverrideStatus -Identity jbob -Status:$true</dev:code>
+        <dev:remarks>
+          <maml:para>Sets idautoPersonOverride to True for user jbob</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 3 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Set-RIDUserOverrideStatus -Identity jbob -Status:$false</dev:code>
+        <dev:remarks>
+          <maml:para>Sets idautoPersonOverride to False for user jbob</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Clear-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Clear-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Set-RIDUserTermDate</command:name>
       <command:verb>Set</command:verb>
       <command:noun>RIDUserTermDate</command:noun>
@@ -3621,6 +4335,154 @@ False</dev:code>
       <maml:navigationLink>
         <maml:linkText>Set-RIDUserOverrideNote</maml:linkText>
         <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDUserOverrideNote.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Test-RIDUserOverrideStatus</command:name>
+      <command:verb>Test</command:verb>
+      <command:noun>RIDUserOverrideStatus</command:noun>
+      <maml:description>
+        <maml:para>Tests if RID Override status is set to True/False (False/Null treated the same).</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Test-RIDUserOverrideStatus cmdlet queries a specified user object's idautoPersonOverride attribute returning True/False depending on value (False/Null treated as False).</maml:para>
+      <maml:para>The Identity parameter specifies the Active Directory user to get. You can identify a user by its name. You can also set the parameter to a user object variable, such as $&lt;localUserObject&gt; or pass a user object through the pipeline to the Identity parameter.</maml:para>
+      <maml:para>This cmdlet returns either True if idautoPersonOverride from user object properties is populated or False if idautoPersonOverride from user object properties is empty or NULL.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Test-RIDUserOverrideStatus</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Identity</maml:name>
+          <maml:Description>
+            <maml:para>Specifies an Active Directory user object by providing SAM (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+            <maml:para>Domain name values:</maml:para>
+            <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para></maml:para>
+            <maml:para>Directory server values:</maml:para>
+            <maml:para>--Fully qualified directory server name</maml:para>
+            <maml:para>--NetBIOS name</maml:para>
+            <maml:para>--Fully qualified directory server name and port</maml:para>
+            <maml:para></maml:para>
+            <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+            <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+            <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Identity</maml:name>
+        <maml:Description>
+          <maml:para>Specifies an Active Directory user object by providing SAM (sAMAccountName). The identifier in parentheses is the LDAP display name for the attribute.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Active Directory Domain Services instance to connect to, by providing one of the following values for a corresponding domain name or directory server. The service may be any of the following: Active Directory Lightweight Domain Services, Active Directory Domain Services or Active Directory Snapshot instance.</maml:para>
+          <maml:para>Domain name values:</maml:para>
+          <maml:para>--Fully qualified domain name (FQDN)</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para></maml:para>
+          <maml:para>Directory server values:</maml:para>
+          <maml:para>--Fully qualified directory server name</maml:para>
+          <maml:para>--NetBIOS name</maml:para>
+          <maml:para>--Fully qualified directory server name and port</maml:para>
+          <maml:para></maml:para>
+          <maml:para>The default value for the Server parameter is determined by one of the following methods in the order that they are listed:</maml:para>
+          <maml:para>--By using Server value from objects passed through the pipeline.</maml:para>
+          <maml:para>--By using the domain of the computer running PowerShell.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; test-RIDUserOverrideStatus jbob
+
+True</dev:code>
+        <dev:remarks>
+          <maml:para>Queries to see if Jim Bob (jbob) has override status set.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Test-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Get-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Clear-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Clear-RIDUserOverrideStatus.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-RIDUserOverrideStatus</maml:linkText>
+        <maml:uri>https://github.com/clee1107/RapidID/blob/master/docs/Set-RIDUserOverrideStatus.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

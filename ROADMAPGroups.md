@@ -12,36 +12,37 @@ Track the 60+ attributes that need functions written for them
 
 
 - ### To Do
+   - [ ] idautoID
+   - [ ] idautoGroupSyncInterval
+   - [ ] idautoGroupToSystem1
+   - [ ] idautoGroupToSystem2
+   - [ ] idautoGroupExcludeBaseDN
+   - [ ] idautoGroupExcludeFilter
+   - [ ] idautoGroupStaticExcludes
+   - [ ] idautoGroupOwners
+   - [ ] idautoGroupCoOwnerEditable
+   - [ ] idautoGroupIncludeBaseDN
+   - [ ] idautoGroupGoogleEmail
+   - [ ] idautoGroupLastSynced
+   - [ ] idautoResourceOwner
    - [ ] idautoDisabled
    - [ ] idautoExternalIntegrationStatus
    - [ ] idautoGroupAcademicCareer
    - [ ] idautoGroupCampusID
    - [ ] idautoGroupCollegeID
-   - [ ] idautoGroupCoOwnerEditable
    - [ ] idautoGroupDeprovisionDate
    - [ ] idautoGroupDestOU
    - [ ] idautoGroupDivisionID
    - [ ] idautoGroupDivisionName
    - [ ] idautoGroupEmailName
-   - [ ] idautoGroupExcludeBaseDN
-   - [ ] idautoGroupExcludeFilter
    - [ ] idautoGroupFolderDest
-   - [ ] idautoGroupGoogleEmail
    - [ ] idautoGroupHomePath
-   - [ ] idautoGroupIncludeBaseDN
-   - [ ] idautoGroupLastSynced
-   - [ ] idautoGroupOwners
    - [ ] idautoGroupPreviousName
    - [ ] idautoGroupSharePath
-   - [ ] idautoGroupStaticExcludes
    - [ ] idautoGroupSyncDSS
-   - [ ] idautoGroupSyncInterval
-   - [ ] idautoGroupToSystem1
-   - [ ] idautoGroupToSystem2
    - [ ] idautoGroupToSystem3
    - [ ] idautoGroupToSystem4
    - [ ] idautoGroupToSystem5
-   - [ ] idautoID
    - [ ] idautoResourceACL
    - [ ] idautoResourceAppOwnerApprover
    - [ ] idautoResourceCategories
@@ -57,7 +58,6 @@ Track the 60+ attributes that need functions written for them
    - [ ] idautoResourceInputData
    - [ ] idautoResourceManualProvisioner
    - [ ] idautoResourceName
-   - [ ] idautoResourceOwner
    - [ ] idautoResourcePRD
    - [ ] idautoResourcePriority
    - [ ] idautoResourceReqAppOwnApproval
