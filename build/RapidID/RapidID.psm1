@@ -126,6 +126,38 @@ function Clear-RIDUserOverrideNote {
 
     }
 }
+function Clear-RIDUserOverrideStatus {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server= (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        ## region Code
+            ## Set logic attribute
+                Write-Verbose -Message "Attempting to clear override status for $Identity"
+                Try {
+                    Set-ADUser -Identity $Identity -Server $Server -Clear idautoPersonOverride -ErrorAction Stop
+                    Write-Verbose -Message "Cleared override status for $Identity"
+                }
+                Catch {
+                        Throw "Failed to clear override status for $Identity"
+                }
+        ## endregion
+    }
+
+    end {
+
+    }
+}
 function Clear-RIDUserTermDate {
     [CmdletBinding(SupportsShouldProcess)]
     param (
@@ -227,6 +259,29 @@ function Get-RIDGroupStaticMember {
 
     }
 }
+function Get-RIDUserID {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        $Object = Get-ADUser -Identity $Identity -property idautoID -Server $Server | Select-Object -Property name, idautoID
+        Return $Object
+    }
+
+    end {
+
+    }
+}
 function Get-RIDUserOverrideNote {
     [CmdletBinding()]
     param (
@@ -243,6 +298,29 @@ function Get-RIDUserOverrideNote {
 
     process {
         $Object = Get-ADUser -Identity $Identity -property idautoPersonStatusOverride -Server $Server | Select-Object -Property name, idautoPersonStatusOverride
+        Return $Object
+    }
+
+    end {
+
+    }
+}
+function Get-RIDUserOverrideStatus {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        $Object = Get-ADUser -Identity $Identity -property idautoPersonOverride -Server $Server | Select-Object -Property name, idautoPersonOverride
         Return $Object
     }
 
@@ -343,6 +421,49 @@ function Remove-RIDGroupStaticMember {
 
     end {
 
+    }
+}
+function RIDUserOverrideReport {
+    [CmdletBinding()]
+    param (
+        [String]
+            $SearchBase = (Get-ADDomain).DistinguishedName,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+        $Report = @()
+    }
+
+    process {
+        $SearchBaseName = If ($SearchBase -eq ((Get-ADDomain).DistinguishedName)) {
+            "Domain Wide"
+            } else {
+                $Searchbase.Split(",")[0].replace("OU=","")
+            }
+        $Users = Get-ADUser -SearchBase $Searchbase -LDAPFilter "(|(idautoPersonOverride=*)(idautoPersonStatusOverride=*))" -Properties idautoPersonOverride,idautoPersonStatusOverride,idautostatus
+        $Ticker = 0
+        ForEach ($User in $Users) {
+            $percent = $Ticker * 100 / $Users.count
+            Write-Progress -Activity "Quering User Accounts - $SearchBaseName - Total $($Users.count)" -Status "$($Users.count - $ticker) users remaining..." -PercentComplete $percent;
+                $UserObj = [pscustomobject]@{
+                    name = $user.name
+                    enabled = $user.enabled
+                    idautostatus = $user.idautostatus
+                    OverrideStatus = $user.idautoPersonOverride
+                    OverrideNote = $user.idautoPersonStatusOverride
+                    UserPrincipalName = $user.UserPrincipalName
+                    DistinguishedName = $user.DistinguishedName
+                }
+            $Report += $UserObj
+            $Ticker ++
+        }
+
+        Return $Report
+    }
+
+    end {
     }
 }
 function Set-RIDGroupCoOwner {
@@ -489,6 +610,47 @@ function Set-RIDUserOverrideNote {
 
     }
 }
+function Set-RIDUserOverrideStatus {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [Alias("User")]
+        [String]
+            $Identity,
+        [parameter(Mandatory=$TRUE,Position=1,ValueFromPipelineByPropertyName)]
+        [Switch]
+            $Status,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        ## region Code
+            ## Set note attribute
+                Write-Verbose -Message "Attempting to set override status for [$Identity]"
+                Try {
+                    If ($Status) {
+                        Set-ADUser -Identity $Identity -Server $Server -Add @{idautoPersonOverride=$true} -ErrorAction Stop
+                    } else {
+                        Set-ADUser -Identity $Identity -Server $Server -Add @{idautoPersonOverride=$false} -ErrorAction Stop
+                    }
+                    Write-Verbose -Message "Set override status to [$status] for [$Identity]"
+                }
+                Catch
+                    {
+                        Throw "Failed to set override status [$status] for [$Identity]"
+                }
+        ## endregion
+    }
+
+    end {
+
+    }
+}
 function Set-RIDUserTermDate {
     [CmdletBinding(SupportsShouldProcess)]
     param (
@@ -621,6 +783,33 @@ function Test-RIDUserOverrideNote {
     process {
         If ($Null -eq (Get-ADUser -Identity $Identity -Property idautoPersonStatusOverride -Server $Server |
                 Select-Object -ExpandProperty idautoPersonStatusOverride))
+            {Write-Output $FALSE -NoEnumerate}
+        Else
+            {Write-Output $TRUE -NoEnumerate}
+    }
+
+    end {
+
+    }
+}
+function Test-RIDUserOverrideStatus {
+    [CmdletBinding()]
+    param (
+        [parameter(Mandatory=$TRUE,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName)]
+        [String]
+            $Identity,
+        [String]
+            $Server = (Get-ADDomainController).HostName
+    )
+
+    begin {
+
+    }
+
+    process {
+        If ($Null -eq (Get-ADUser -Identity $Identity -Property idautoPersonOverride -Server $Server |
+                Select-Object -ExpandProperty idautoPersonOverride) -OR $False -eq (Get-ADUser -Identity $Identity -Property idautoPersonOverride -Server $Server |
+                Select-Object -ExpandProperty idautoPersonOverride) )
             {Write-Output $FALSE -NoEnumerate}
         Else
             {Write-Output $TRUE -NoEnumerate}

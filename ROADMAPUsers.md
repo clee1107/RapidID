@@ -8,12 +8,13 @@ Track the 400+ attributes that need functions written for them
    - [X] Add list of all idauto attributes for AD users
    - [X] idautoPersonTermDate
    - [X] idautoPersonStatusOverride
+   - [X] idautoID
+   - [X] idautoPersonOverride
 
 - ### To Do
    - [ ] idautoChallengeSet
    - [ ] idautoChallengeSetTimestamp
    - [ ] idautoDisabled
-   - [ ] idautoID
    - [ ] idautoPersonAcademicCareer
    - [ ] idautoPersonADLastLogonTimeStamp
    - [ ] idautoPersonAdvisorID
@@ -296,7 +297,6 @@ Track the 400+ attributes that need functions written for them
    - [ ] idautoPersonOldPreferredEmail
    - [ ] idautoPersonOracleServiceCloudID
    - [ ] idautoPersonOtherID
-   - [ ] idautoPersonOverride
    - [ ] idautoPersonParAppEntitlement
    - [ ] idautoPersonParBirthdate
    - [ ] idautoPersonParCity

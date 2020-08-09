@@ -1,6 +1,13 @@
 # ChangeLog for RapidID
 
-##1.4.0
+## 1.5.0
++ Added RIDUserOverrideReport
++ Added Get-RIDUserID
++ Added OverrideStatus function set
+    + Clear, Get, Set, Test
+
+
+## 1.4.0
 + Production relase of UserOverrideNote function set
     + Clear, Get, Set, Test
 
