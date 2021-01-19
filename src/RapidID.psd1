@@ -61,16 +61,18 @@ Description = 'This module helps manage Rapid Identity.'
 
 # Type files (.ps1xml) to be loaded when importing this module
 # TypesToProcess = @()
+# TypesToProcess = @('xml\RapidID.Types.ps1xml')
 
 # Format files (.ps1xml) to be loaded when importing this module
 # FormatsToProcess = @()
+# FormatsToProcess  = @('xml\RapidID.Format.ps1xml')
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Clear-RIDGroupCoOwner', 'Clear-RIDGroupLogic', 'Get-RIDGroupCoOwner', 
-               'Get-RIDGroupLogic', 'Remove-RIDGroupCoOwner', 'Set-RIDGroupCoOwner', 
+FunctionsToExport = 'Clear-RIDGroupCoOwner', 'Clear-RIDGroupLogic', 'Get-RIDGroupCoOwner',
+               'Get-RIDGroupLogic', 'Remove-RIDGroupCoOwner', 'Set-RIDGroupCoOwner',
                'Set-RIDGroupLogic', 'Test-RIDGroupCoOwner', 'Test-RIDGroupLogic'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
@@ -115,7 +117,7 @@ PrivateData = @{
         # ExternalModuleDependencies = ''
 
     } # End of PSData hashtable
-    
+
  } # End of PrivateData hashtable
 
 # HelpInfo URI of this module
