@@ -27,7 +27,9 @@ function Set-RIDUserOverrideNote {
                 }
                 Catch
                     {
-                        Throw "Failed to set term date ($note) for $Identity"
+                        If (Get-ADUser -Identity $Identity -Server $Server -Properties idautoPersonStatusOverride) {
+                            Throw "Failed to set term date ($note) for $Identity"
+                        }
                 }
         ## endregion
     }
